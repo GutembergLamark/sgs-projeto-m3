@@ -12,7 +12,7 @@ export const LoginContaine = styled.div`
         justify-content: center;
         align-items: center;
 
-        background-color: var(--blue);
+        background-color: var(--color-primary);
         width: 100%;
         height: 100%;
         min-height: 120px;
@@ -78,7 +78,7 @@ export const LoginContaine = styled.div`
     height: 49px;
     padding: 0 1rem;
     color: #000000;
-    background-color: var(--grey);
+    background-color: var(--gray-100);
    }
    p{
     color: red;
@@ -89,7 +89,7 @@ export const LoginContaine = styled.div`
         height: 44px;
         border-radius: 10px;
         font-size: 26px;
-        background-color: var(--blue);
+        background-color: var(--color-primary);
         color: #ffffffff;
    }
    span{

@@ -1,4 +1,4 @@
-import Icon from "../../components/assets/imgs/imagePessoa";
+import Icon from "../../assets/imgs/imagePessoa";
 import { LoginContaine } from "./style";
 import Footer from "../../components/footer";
 import { Link } from "react-router-dom";

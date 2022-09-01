@@ -1,5 +1,5 @@
 import "./App.css";
-import { GlobalStyle } from "./style/GlobalStyle";
+import { GlobalStyle } from "./styles/reset";
 import RoutesBrauser from "./routes";
 
 function App() {
