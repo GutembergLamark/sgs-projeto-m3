@@ -1,9 +1,13 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-
+import { GlobalStyle } from "./style/GlobalStyle";
+import RoutesBrauser from "./routes";
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <GlobalStyle />
+      <RoutesBrauser/>
+    </>
+  )
 }
 
 export default App;
