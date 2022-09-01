@@ -1,3 +1,5 @@
+import "./App.css";
+import Register from "./pages/Register";
 import React from "react";
 import DashboardDoctor from "./pages/DashboardDoctor";
 import "./App.css";
@@ -8,7 +10,6 @@ import { PageAllergiesPacient } from "./pages/PageAllergiesPacient";
 function App() {
   return (
     <div className="App">
-      <DashboardDoctor />
       <GlobalStyle />
     </div>
   );
