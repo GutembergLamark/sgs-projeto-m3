@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Form = styled.form`
   width: 320px;
-  height: 540px;
+  height: 450px;
   background: #fffbfb;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 13px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -10,10 +10,11 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
+  bottom: 0;
 
   h1 {
     font-size: 22px;
-    margin-top: 2px;
     margin-bottom: 18px;
     font-weight: 700;
     color: #0b8899;
@@ -27,6 +28,43 @@ export const Form = styled.form`
     border-radius: 10px;
     border: none;
     color: #ffffff;
+    font-size: 13px;
+  }
+
+  div:nth-child(8),
+  div:nth-child(10) {
+    display: flex;
+    align-items: center;
+    background: #d9d9d9;
+    border-radius: 4px;
+    padding-right: 10px;
+
+    :focus-within {
+      outline: 2px solid black;
+    }
+
+    input {
+      width: 224px;
+      :focus {
+        outline: none;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    height: 600px;
+    padding: 5px;
+    justify-content: space-evenly;
+
+    button {
+      width: 250px;
+      height: 40px;
+      font-size: 15px;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
   }
 `;
 
@@ -35,10 +73,10 @@ export const DivGeneral = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 10px;
+  gap: 5px;
 
   label {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   input {
@@ -59,6 +97,14 @@ export const DivGeneral = styled.div`
     border: none;
     color: #424242;
     padding-left: 8px;
+  }
+  @media (min-width: 1024px) {
+    gap: 10px;
+
+    label {
+      font-size: 13px;
+      font-size: 15px;
+    }
   }
 `;
 

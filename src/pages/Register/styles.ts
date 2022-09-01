@@ -16,6 +16,7 @@ export const Header = styled.header`
     font-size: 25px;
     color: #ffffff;
     text-align: center;
+    font-weight: bold;
   }
 
   @media (min-width: 1024px) {
@@ -27,15 +28,11 @@ export const Header = styled.header`
 
 export const Div = styled.div`
   width: 100%;
-  height: 90vh;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
-  img {
-    margin-bottom: 20px;
-  }
 
   @media (min-width: 1024px) {
     flex-direction: row;
@@ -43,10 +40,25 @@ export const Div = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-top: 4.5%;
+  }
+`;
 
-    img {
-      width: 400px;
-    }
+export const DoctorImg = styled.img`
+  width: 0%;
+
+  @media (min-width: 1024px) {
+    width: 40%;
+  }
+`;
+
+export const PacientImg = styled.img`
+  width: 230px;
+  margin-top: 50px;
+  margin-bottom: 80px;
+
+  @media (min-width: 1024px) {
+    width: 0%;
   }
 `;
 
