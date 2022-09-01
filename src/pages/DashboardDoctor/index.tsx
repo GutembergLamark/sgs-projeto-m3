@@ -1,10 +1,10 @@
-import MenuAside from "../../components/MenuAside";
+import MenuAsideDoctor from "../../components/MenuAsideDoctor";
 import { Main } from "./styles";
 
 const DashboardDoctor = () => {
   return (
     <Main>
-      <MenuAside />
+      <MenuAsideDoctor />
       <section className="content__main">
         <form className="content__main__form">
           <input
