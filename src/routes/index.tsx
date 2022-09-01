@@ -1,10 +1,13 @@
-import { Routes, Route} from "react-router-dom";
+import Register from "../pages/Register";
+import { Routes, Route } from "react-router-dom";
 import Login from "../pages/login";
- const RoutesBrauser = ()=> {
-    return (
-      <Routes>
-        <Route path="/" element={ <Login />}/>
-      </Routes> 
-    );
-}
-export default RoutesBrauser;
+
+const Router = () => {
+  <Routes>
+    <Route path="/login" element={ <Login />}/>
+    <Route path="/register" element={<Register />} />
+  </Routes>;
+};
+
+export default Router;
+
