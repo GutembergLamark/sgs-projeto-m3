@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const LoginContaine = styled.div`
 
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
+    align-items: center;
     header{
+        width: 100%;
+        max-width: 1800px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -24,21 +24,28 @@ export const LoginContaine = styled.div`
         line-height: 40px;
     }
     main{
+        width: 100%;
+        max-width: 1200px;
         display: flex;
-        justify-content: center;
-        padding: 2rem;
-        margin: auto;
+        justify-content: space-between;
+        gap: 5rem;
+        padding: 1rem;
+        margin: 5rem;
     } 
-    @media(min-width:480px){
+    /* @media(min-width:480px){
         main{
             gap: 15rem;
         }
-    }
-    @media(max-width: 480px){
+    } */
+     @media(max-width: 900px){
         main{
+            gap:2rem;
+            margin:1rem;
+            justify-content: center;
             flex-wrap: wrap;
         }
-    }
+        
+    } 
     .cantaineForm{
          display: flex;
          flex-direction: column;
@@ -46,11 +53,12 @@ export const LoginContaine = styled.div`
          width: 100%;
          max-width: 499px;
          gap: 22px;
-         height: 412px;
+         min-height: 412px;
          padding: 2rem 1rem;
          background: #FFFBFB;
          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 13px rgba(0, 0, 0, 0.25);
    }
+  
    form{
     width: 100%;
     display: flex;
@@ -63,7 +71,7 @@ export const LoginContaine = styled.div`
    }
    label{
     font-size: 20px;
-    color: var(--grey);
+    color: grey;
    }
    input{
     width: 100%;
@@ -88,3 +96,12 @@ export const LoginContaine = styled.div`
     color: grey;
    }
 `
+// export const InputView = styled.div`
+
+//     width: 100%;
+//     border-width: 1px;
+//     padding: 0 10px;
+//     flex-direction: row;
+//     align-items: center;
+//     justify-content: space-between;
+// `
