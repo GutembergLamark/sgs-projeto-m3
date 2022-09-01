@@ -1,14 +1,17 @@
+import React from "react";
+import DashboardDoctor from "./pages/DashboardDoctor";
 import "./App.css";
 import { GlobalStyle } from "./styles/reset";
-import RoutesBrauser from "./routes";
+import { HomePaciente } from "./pages/HomePaciente";
+
 
 function App() {
   return (
-    <>
+    <div className="App">
       <GlobalStyle />
-      <RoutesBrauser/>
-    </>
-  )
+    </div>
+  );
+
 }
 
 export default App;
