@@ -90,7 +90,7 @@ export const DivGeneral = styled.div`
   }
 
   select {
-    width: 260px;
+    width: 250px;
     height: 30px;
     background: #d9d9d9;
     border-radius: 4px;
@@ -98,6 +98,7 @@ export const DivGeneral = styled.div`
     color: #424242;
     padding-left: 8px;
   }
+
   @media (min-width: 1024px) {
     gap: 10px;
 

@@ -10,6 +10,10 @@ import { PageAllergiesPacient } from "./pages/PageAllergiesPacient";
 function App() {
   return (
     <div className="App">
+      {/* <Register /> */}
+      {/* <DashboardDoctor /> */}
+      {/* <HomePaciente /> */}
+      <PageAllergiesPacient />
       <GlobalStyle />
     </div>
   );
