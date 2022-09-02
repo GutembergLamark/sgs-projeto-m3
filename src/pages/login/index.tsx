@@ -1,16 +1,17 @@
-import Icon from "../../assets/imgs/imagePessoa";
+import MedicalLogin from "../../assets/imgs/medical";
 import { LoginContaine } from "./style";
 import Footer from "../../components/footer";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import Input from "../../components/InputRegister/index";
 
 interface IFormInputs {
     email: string
     password: number
   }
-   
+
 const schema = yup.object({
     email: yup.string().required("E-mail obrigatório"),
     password: yup.string().required("Senha obrigatória")
@@ -31,29 +32,34 @@ const Login = ()=>{
                 </h1>
             </header>
             <main>
-                <Icon/>
+                
+                <MedicalLogin />
+               
                 <div className="cantaineForm">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <label>
-                          Email
-                            <input type="email" {...register("email")} />
-                            <p>{errors.email?.message}</p>
-                        </label>
+                        <Input
+                            label={"E-mail"}
+                            register={register}
+                            id={"email"}
+                            error={errors?.email}
+                            placeholder={"Digite seu E-mail"}
+                            type={"email"}
+                        />
 
-                        <label>
-                          Senha
-                               <input type="password" {...register("password")} />
-                            <p>{errors.password?.message}</p>
-                        </label>
-                        
+                        <Input
+                            label={"Senha"}
+                            register={register}
+                            id={"password"}
+                            error={errors?.password}
+                            placeholder={"Digite sua senha"}
+                            type={"password"}
+                        />
                         <button type="submit" >Entrar</button>
                     </form>
-                    <div>
-                        <span>Ainda não tem conta?</span>
-                        <Link to="#">
-                            <b>Cadastre-se</b>
-                        </Link>
-                    </div>
+                    <nav>
+                        <p>Ainda não tem conta?</p>
+                        <b>Cadastre-se</b>
+                    </nav>
                 </div> 
             </main>
             <Footer/>

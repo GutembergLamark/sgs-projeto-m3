@@ -15,7 +15,9 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: 'Inter', sans-serif;
     }
-
+    button{
+        cursor: pointer;
+    }
     ul,ol{
         list-style: none;
     }
