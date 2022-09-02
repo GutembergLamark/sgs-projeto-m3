@@ -21,9 +21,9 @@ export const Form = styled.form`
   }
 
   button {
-    margin-top: 35px;
+    margin-top: 10px;
     width: 225px;
-    height: 40px;
+    height: 35px;
     background: #0b8899;
     border-radius: 10px;
     border: none;
