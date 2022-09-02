@@ -41,5 +41,3 @@ export const Error = styled.div`
     }
   }
 `;
-
-export const DivEye = styled.div``;
