@@ -1,6 +1,6 @@
 import { DivGeneral, SectionCentral, Aside } from "./style";
 
-export const HomePaciente = () => {
+export const DashboardPaciente = () => {
   return (
     <DivGeneral>
       <Aside>

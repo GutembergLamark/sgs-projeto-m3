@@ -48,6 +48,8 @@ export const Aside = styled.aside`
 
     padding: 0.625rem;
 
+    text-align: center;
+
     display: flex;
     flex-direction: column;
     gap: 5px;
