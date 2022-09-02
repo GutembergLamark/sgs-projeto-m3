@@ -5,6 +5,7 @@ export const LoginContaine = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url("../../assets/Fundo.png");
     header{
         width: 100%;
         max-width: 1800px;

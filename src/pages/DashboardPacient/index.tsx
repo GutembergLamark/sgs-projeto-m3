@@ -1,7 +1,7 @@
 import { MenuAsidePacient } from "../../components/MenuAsidePacient";
 import { DivGeneral, SectionCentral } from "./style";
 
-export const HomePaciente = () => {
+export const DashboardPacient = () => {
   return (
     <DivGeneral>
       <MenuAsidePacient />
