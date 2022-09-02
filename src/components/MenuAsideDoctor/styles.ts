@@ -14,8 +14,8 @@ export const Aside = styled.aside`
   box-shadow: 9px 5px 9px -5px rgba(0, 0, 0, 0.25);
 
   @media only screen and (min-width: 768px) {
-    &{
-      width: 20%
+    & {
+      width: 215px;
     }
   }
 

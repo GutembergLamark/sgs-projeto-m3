@@ -5,7 +5,11 @@ export const HomePaciente = () => {
     <DivGeneral>
       <Aside>
         <div className="div-logo">
-          <img src={require("../assets/LogoSGS.png")} alt="" className="logo" />
+          <img
+            src={require("../../assets/LogoSGS.png")}
+            alt="logo"
+            className="logo"
+          />
           <h2>S.G.S</h2>
         </div>
         <div className="div-central">
@@ -20,7 +24,7 @@ export const HomePaciente = () => {
         </div>
       </Aside>
       <SectionCentral>
-        <img src={require("../assets/HomePacienteImg.gif")} alt="" />
+        <img src={require("../../assets/HomePacienteImg.gif")} alt="" />
         <h1>S.G.S</h1>
         <h1>Sistema Geral de Saúde</h1>
       </SectionCentral>

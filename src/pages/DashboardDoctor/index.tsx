@@ -1,5 +1,6 @@
-import MenuAside from "../../components/MenuAside";
+import MenuAside from "../../components/MenuAsideDoctor";
 import { Main } from "./styles";
+import Img from "../../assets/historicoVazio.svg";
 
 const DashboardDoctor = () => {
   return (
@@ -14,11 +15,7 @@ const DashboardDoctor = () => {
           />
           <button className="form__button">Buscar</button>
         </form>
-        <img
-          className="content__empty"
-          src={require("../../assets/Medical.gif")}
-          alt=""
-        />
+        <img className="content__empty" src={Img} alt="" />
       </section>
     </Main>
   );

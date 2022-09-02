@@ -37,6 +37,8 @@ export const Main = styled.main`
     align-items: center;
     gap: 10px;
 
+    margin-bottom: 50px;
+
     .form__input {
       border: 2px solid #d9d9d9;
       padding: 5px;
@@ -71,6 +73,15 @@ export const Main = styled.main`
 
     .form__button {
       width: 50%;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .form__input {
+      width: 450px;
+    }
+    .form__button {
+      width: 190px;
     }
   }
 `;
