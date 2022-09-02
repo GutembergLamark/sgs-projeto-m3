@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Form = styled.form`
   width: 320px;
-  height: 450px;
+  height: 480px;
   background: #fffbfb;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 13px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -29,6 +29,7 @@ export const Form = styled.form`
     border: none;
     color: #ffffff;
     font-size: 13px;
+    padding: 5px;
   }
 
   div:nth-child(8),

@@ -44,6 +44,7 @@ const Modals = ({
         cursor={"pointer"}
         onClick={onOpen}
         fontWeight={"normal"}
+        _active={{ bgColor: "#077E8E" }}
         _hover={{ bgColor: "#077E8E" }}
       >
         {nameButton}
@@ -65,7 +66,7 @@ const Modals = ({
               <FormControl>
                 <FormLabel>{labelName}</FormLabel>
                 <Input ref={initialRef} placeholder={placeholderName} />
-                <FormLabel>{description}</FormLabel>
+                <FormLabel marginTop={"15px"}>{description}</FormLabel>
                 <Input placeholder={placeholderDescription} />
                 <ModalFooter
                   display={"flex"}
@@ -77,6 +78,8 @@ const Modals = ({
                     bgColor="#077E8E"
                     color={"white"}
                     width={"200px"}
+                    marginTop={"15px"}
+                    _active={{ bgColor: "#077E8E" }}
                     _hover={{
                       bgColor: "#077e8ed3",
                       transition: "0.3s",
