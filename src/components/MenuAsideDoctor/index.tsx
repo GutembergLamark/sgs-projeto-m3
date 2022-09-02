@@ -1,7 +1,7 @@
 import { GiExitDoor } from "react-icons/gi";
 import { Aside } from "./styles";
 
-const MenuAside = () => {
+const MenuAsideDoctor = () => {
   return (
     <Aside>
       <header className="menu__side__header">
@@ -25,4 +25,4 @@ const MenuAside = () => {
   );
 };
 
-export default MenuAside;
+export default MenuAsideDoctor;

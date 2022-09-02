@@ -54,8 +54,8 @@ export const DoctorImg = styled.img`
 
 export const PacientImg = styled.img`
   width: 230px;
-  margin-top: 50px;
-  margin-bottom: 80px;
+  margin-top: 30px;
+  margin-bottom: 25px;
 
   @media (min-width: 1024px) {
     width: 0%;

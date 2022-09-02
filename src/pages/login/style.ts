@@ -65,10 +65,7 @@ export const LoginContaine = styled.div`
    }
   .InputContaine{
     width: 100%;
-  }
-
-  label{
-    width: 100%;
+    text-align: start;
   }
    input{
     width: 100%;
