@@ -2,6 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { createContext, ReactNode } from "react";
 import {
   FieldErrorsImpl,
+  FieldValues,
   useForm,
   UseFormHandleSubmit,
   UseFormRegister,
@@ -15,14 +16,7 @@ interface IRegisterProvider {
 interface IRegisterContext {
   handleSubmit: UseFormHandleSubmit<IUser>;
   register: UseFormRegister<IUser>;
-  errors: FieldErrorsImpl<{
-    name: string;
-    cpf: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-    type: string;
-  }>;
+  errors: FieldErrorsImpl<IUser>;
   registerUser: (data: IUser) => void;
 }
 
@@ -35,7 +29,9 @@ interface IUser {
   type: string;
 }
 
-export const RegisterContext = createContext({} as IRegisterContext);
+export const RegisterContext = createContext<IRegisterContext>(
+  {} as IRegisterContext
+);
 
 const RegisterProvider = ({ children }: IRegisterProvider) => {
   const {

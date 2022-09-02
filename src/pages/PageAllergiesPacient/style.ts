@@ -51,6 +51,7 @@ export const SectionGeneral = styled.section`
     border-radius: 10px;
     background-color: rgba(11, 136, 153, 1);
     color: white;
+    font-size: 16px;
 
     &:hover {
       border: 4px solid white;

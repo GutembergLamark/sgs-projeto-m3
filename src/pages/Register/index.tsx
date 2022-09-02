@@ -2,6 +2,7 @@ import FormRegister from "../../components/FormRegister";
 import { Header, Div, Footer, DoctorImg, PacientImg } from "./styles";
 import Doctor from "../../assets/Doctor.svg";
 import Pacient from "../../assets/Pacient.svg";
+import Modals from "../../components/Modals";
 
 const Register = () => {
   return (

@@ -1,5 +1,6 @@
 import React from "react";
-import Router from "./Routes";
+import { PageAllergiesPacient } from "./pages/PageAllergiesPacient";
+import Router from "./routes";
 import { GlobalStyle } from "./styles/reset";
 
 function App() {
