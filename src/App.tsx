@@ -1,11 +1,7 @@
-import "./App.css";
-import Register from "./pages/Register";
 import React from "react";
-import DashboardDoctor from "./pages/DashboardDoctor";
-import "./App.css";
-import { GlobalStyle } from "./styles/reset";
-import { HomePaciente } from "./pages/HomePacient";
 import { PageAllergiesPacient } from "./pages/PageAllergiesPacient";
+import Router from "./routes";
+import { GlobalStyle } from "./styles/reset";
 
 function App() {
   return (
@@ -13,8 +9,9 @@ function App() {
       {/* <Register /> */}
       {/* <DashboardDoctor /> */}
       {/* <HomePaciente /> */}
-      <PageAllergiesPacient />
+      {/* <PageAllergiesPacient /> */}
       <GlobalStyle />
+      <Router />
     </div>
   );
 }

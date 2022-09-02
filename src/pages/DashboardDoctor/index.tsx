@@ -1,26 +1,21 @@
-import MenuAsideDoctor from "../../components/MenuAsideDoctor";
-import { Main } from "./styles";
+import { Form } from "./styles";
+import Img from "../../assets/historicoVazio.svg";
+
+import ContentDashboardDoctor from "../../components/ContentDashboardDoctor";
 
 const DashboardDoctor = () => {
   return (
-    <Main>
-      <MenuAsideDoctor />
-      <section className="content__main">
-        <form className="content__main__form">
-          <input
-            className="form__input"
-            type="text"
-            placeholder="Insira o cpf do paciente"
-          />
-          <button className="form__button">Buscar</button>
-        </form>
-        <img
-          className="content__empty"
-          src={require("../../assets/Medical.gif")}
-          alt=""
+    <ContentDashboardDoctor>
+      <Form className="content__main__form">
+        <input
+          className="form__input"
+          type="text"
+          placeholder="Insira o cpf do paciente"
         />
-      </section>
-    </Main>
+        <button className="form__button">Buscar</button>
+      </Form>
+      <img className="content__empty" src={Img} alt="" />
+    </ContentDashboardDoctor>
   );
 };
 

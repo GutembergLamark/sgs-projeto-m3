@@ -1,4 +1,4 @@
-import { Div, Error, DivEye } from "./styles";
+import { Div, Error } from "./styles";
 import { BiErrorCircle } from "react-icons/bi";
 import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";

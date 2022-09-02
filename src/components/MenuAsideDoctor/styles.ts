@@ -15,7 +15,7 @@ export const Aside = styled.aside`
 
   @media only screen and (min-width: 768px) {
     & {
-      width: 20%;
+      width: 215px;
     }
   }
 
@@ -47,6 +47,8 @@ export const Aside = styled.aside`
     background-color: var(--color-primary);
 
     padding: 0.625rem;
+
+    text-align: center;
 
     display: flex;
     flex-direction: column;
