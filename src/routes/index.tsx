@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "../pages/Login";
 import DashboardDoctor from "../pages/DashboardDoctor";
 import { DashboardPacient } from "../pages/DashboardPacient";
+import { PageAllergiesPacient } from "../pages/PageAllergiesPacient";
 
 const Router = () => {
   return (
@@ -11,6 +12,10 @@ const Router = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard/doctor" element={<DashboardDoctor />} />
       <Route path="/dashboard/patient" element={<DashboardPacient />} />
+      <Route
+        path="/dashboard/patient/alergias"
+        element={<PageAllergiesPacient />}
+      />
     </Routes>
   );
 };
