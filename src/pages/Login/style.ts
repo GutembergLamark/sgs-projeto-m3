@@ -5,6 +5,7 @@ export const LoginContaine = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url("../../assets/Fundo.png");
     header{
         width: 100%;
         max-width: 1800px;
@@ -27,17 +28,13 @@ export const LoginContaine = styled.div`
         width: 100%;
         max-width: 1200px;
         display: flex;
-        justify-content: space-between;
         gap: 5rem;
         padding: 1rem;
-        margin: 5rem;
+        justify-content: space-between;
+        margin: 2rem 5rem 5rem;
     } 
-    /* @media(min-width:480px){
-        main{
-            gap: 15rem;
-        }
-    } */
-     @media(max-width: 900px){
+ 
+     @media(max-width: 920px){
         main{
             gap:2rem;
             margin:1rem;
@@ -50,6 +47,7 @@ export const LoginContaine = styled.div`
          display: flex;
          flex-direction: column;
          align-items: center;
+         justify-content: center;
          width: 100%;
          max-width: 499px;
          gap: 22px;
@@ -66,13 +64,10 @@ export const LoginContaine = styled.div`
     align-items: center;
     gap: 36px;
    }
-   label, input{
+  .InputContaine{
     width: 100%;
-   }
-   label{
-    font-size: 20px;
-    color: grey;
-   }
+    text-align: start;
+  }
    input{
     width: 100%;
     height: 49px;
@@ -92,16 +87,10 @@ export const LoginContaine = styled.div`
         background-color: var(--color-primary);
         color: #ffffffff;
    }
-   span{
+   p{
     color: grey;
    }
+ nav{
+    display: flex;
+ }
 `
-// export const InputView = styled.div`
-
-//     width: 100%;
-//     border-width: 1px;
-//     padding: 0 10px;
-//     flex-direction: row;
-//     align-items: center;
-//     justify-content: space-between;
-// `

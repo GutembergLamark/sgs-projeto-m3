@@ -17,7 +17,7 @@ const Input = ({ register, id, label, error, placeholder, type }: any) => {
           </Error>
         )}
       </Div>
-      <div>
+      <div className="InputContaine">
         <input
           placeholder={placeholder}
           type={

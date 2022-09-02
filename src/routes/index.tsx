@@ -1,6 +1,6 @@
 import Register from "../pages/Register";
 import { Routes, Route } from "react-router-dom";
-import Login from "../pages/login";
+import Login from "../pages/Login";
 import DashboardDoctor from "../pages/DashboardDoctor";
 import { DashboardPacient } from "../pages/DashboardPacient";
 import { PageAllergiesPacient } from "../pages/PageAllergiesPacient";

@@ -1,3 +1,4 @@
+import api from "../../services/api";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createContext, ReactNode } from "react";
 import {
@@ -14,6 +15,7 @@ interface IRegisterProvider {
 }
 
 interface IRegisterContext {
+  signIn: (data: any) => Promise<void>;
   handleSubmit: UseFormHandleSubmit<IUser>;
   register: UseFormRegister<IUser>;
   errors: FieldErrorsImpl<IUser>;
@@ -29,9 +31,15 @@ interface IUser {
   type: string;
 }
 
+interface IUserSignIn {
+  email: string;
+  password: number;
+}
+
 export const RegisterContext = createContext<IRegisterContext>(
   {} as IRegisterContext
 );
+
 
 const RegisterProvider = ({ children }: IRegisterProvider) => {
   const {
@@ -46,9 +54,17 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
     console.log(data);
   };
 
+  const signIn = async (data:IUserSignIn) =>{ 
+    try{
+      const response = await api.post("/login", data);
+    }catch(error){
+      console.log(error)
+    }
+  }
+
   return (
     <RegisterContext.Provider
-      value={{ handleSubmit, register, errors, registerUser }}
+      value={{signIn, handleSubmit, register, errors, registerUser }}
     >
       {children}
     </RegisterContext.Provider>
@@ -56,3 +72,4 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
 };
 
 export default RegisterProvider;
+
