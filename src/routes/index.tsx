@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import DashboardDoctor from "../pages/DashboardDoctor";
 import { DashboardPacient } from "../pages/DashboardPacient";
 import { PageAllergiesPacient } from "../pages/PageAllergiesPacient";
+import ListDoctor from "../pages/ListDoctor";
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
         path="/dashboard/patient/alergias"
         element={<PageAllergiesPacient />}
       />
+      <Route path="/dashboard/doctor:id" element={<ListDoctor />} />
     </Routes>
   );
 };
