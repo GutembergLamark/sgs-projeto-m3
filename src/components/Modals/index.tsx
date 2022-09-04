@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -13,6 +13,7 @@ import {
   Input,
   useDisclosure,
 } from "@chakra-ui/react";
+import { ModalContext } from "../../contexts/ModalProvider";
 
 interface IModal {
   title: string;
@@ -22,6 +23,7 @@ interface IModal {
   placeholderDescription: string;
   nameButton: string;
   sendButton: string;
+  modalSent: () => void;
 }
 
 const Modals = ({
@@ -32,7 +34,11 @@ const Modals = ({
   placeholderDescription,
   nameButton,
   sendButton,
+  modalSent,
 }: IModal) => {
+  const { errors, handleSubmit, register, isSubmitting } =
+    useContext(ModalContext);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialRef = React.useRef(null);
@@ -62,12 +68,19 @@ const Modals = ({
           <ModalHeader color={"#077E8E"}>{title}</ModalHeader>
           <ModalCloseButton cursor={"pointer"} _hover={{ color: "red" }} />
           <ModalBody pb={6}>
-            <form>
+            <form onSubmit={handleSubmit(modalSent)}>
               <FormControl>
                 <FormLabel>{labelName}</FormLabel>
-                <Input ref={initialRef} placeholder={placeholderName} />
+                <Input
+                  ref={initialRef}
+                  placeholder={placeholderName}
+                  {...register("name")}
+                />
                 <FormLabel marginTop={"15px"}>{description}</FormLabel>
-                <Input placeholder={placeholderDescription} />
+                <Input
+                  placeholder={placeholderDescription}
+                  {...register("description")}
+                />
                 <ModalFooter
                   display={"flex"}
                   justifyContent={"center"}
@@ -84,6 +97,7 @@ const Modals = ({
                       bgColor: "#077e8ed3",
                       transition: "0.3s",
                     }}
+                    type={"submit"}
                   >
                     {sendButton}
                   </Button>
