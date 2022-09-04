@@ -46,6 +46,7 @@ export const Form = styled.form`
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
+    justify-content: center;
     gap: 0;
 
     .form__input {

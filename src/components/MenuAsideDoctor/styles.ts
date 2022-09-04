@@ -64,9 +64,21 @@ export const Aside = styled.aside`
       background-color: red;
       color: white;
 
+      border: 1px solid white;
+
       display: flex;
       justify-content: center;
       gap: 5px;
+    }
+  }
+
+  @media only screen and (min-width: 586px) {
+    .menu__side__footer {
+      align-items: center;
+
+      button {
+        width: 156px;
+      }
     }
   }
 `;
