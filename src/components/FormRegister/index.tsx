@@ -1,12 +1,14 @@
-import { Form, DivGeneral } from "./styles";
+import { Form, DivGeneral, Back, ButtonSend } from "./styles";
 import Input from "../InputRegister";
 import { useContext } from "react";
 import { RegisterContext } from "../../contexts/RegisterProvider";
+import { useNavigate } from "react-router-dom";
 
 const FormRegister = () => {
   const { errors, handleSubmit, register, registerUser } =
     useContext(RegisterContext);
 
+  const Navigate = useNavigate();
   return (
     <>
       <Form onSubmit={handleSubmit(registerUser)}>
@@ -58,7 +60,8 @@ const FormRegister = () => {
             <option value="enfermeiro">Enfermeiro</option>
           </select>
         </DivGeneral>
-        <button type="submit">Cadastrar</button>
+        <ButtonSend type="submit">Cadastrar</ButtonSend>
+        <Back onClick={() => Navigate("/", { replace: true })}>Voltar</Back>
       </Form>
     </>
   );

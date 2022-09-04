@@ -2,6 +2,25 @@ import { Div, Error } from "./styles";
 import { BiErrorCircle } from "react-icons/bi";
 import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { FieldErrorsImpl, UseFormRegister } from "react-hook-form";
+
+interface IUser {
+  name: string;
+  cpf: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  type: string;
+}
+
+interface IInuput {
+  register: UseFormRegister<IUser>;
+  id: string;
+  label: string;
+  error: FieldErrorsImpl<IUser> | undefined;
+  placeholder: string;
+  type: string;
+}
 
 const Input = ({ register, id, label, error, placeholder, type }: any) => {
   const [visibleConfirm, setVisibleConfirm] = useState<boolean>(false);
@@ -31,15 +50,27 @@ const Input = ({ register, id, label, error, placeholder, type }: any) => {
         />
         {label === "Senha" &&
           (visible ? (
-            <AiFillEye onClick={() => setVisible(false)} />
+            <AiFillEye
+              style={{ cursor: "pointer" }}
+              onClick={() => setVisible(false)}
+            />
           ) : (
-            <AiFillEyeInvisible onClick={() => setVisible(true)} />
+            <AiFillEyeInvisible
+              style={{ cursor: "pointer" }}
+              onClick={() => setVisible(true)}
+            />
           ))}
         {label === "Confirmar Senha" &&
           (visibleConfirm ? (
-            <AiFillEye onClick={() => setVisibleConfirm(false)} />
+            <AiFillEye
+              style={{ cursor: "pointer" }}
+              onClick={() => setVisibleConfirm(false)}
+            />
           ) : (
-            <AiFillEyeInvisible onClick={() => setVisibleConfirm(true)} />
+            <AiFillEyeInvisible
+              style={{ cursor: "pointer" }}
+              onClick={() => setVisibleConfirm(true)}
+            />
           ))}
       </div>
     </>
