@@ -3,8 +3,12 @@ import ImageMedical from "../../assets/ImageDoctorSit.svg";
 import Image from "../../assets/Fundo.png";
 import { MenuAsidePacient } from "../../components/MenuAsidePacient";
 import Modals from "../../components/Modals";
+import { useContext } from "react";
+import { ModalContext } from "../../contexts/ModalProvider";
 
 export const PageAllergiesPacient = () => {
+  const { Allergy } = useContext(ModalContext);
+
   return (
     <DivGeneral>
       <MenuAsidePacient />
@@ -14,6 +18,7 @@ export const PageAllergiesPacient = () => {
         </div>
         <div className="div-button">
           <Modals
+            modalSent={Allergy}
             nameButton={"Informar Alergia"}
             title={"Informar Alergia"}
             labelName={"Alergia"}

@@ -48,7 +48,7 @@ export const DoctorImg = styled.img`
   width: 0%;
 
   @media (min-width: 1024px) {
-    width: 40%;
+    width: 35%;
   }
 `;
 

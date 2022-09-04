@@ -3,7 +3,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { createContext, ReactNode } from "react";
 import {
   FieldErrorsImpl,
-  FieldValues,
   useForm,
   UseFormHandleSubmit,
   UseFormRegister,
@@ -23,9 +22,6 @@ interface IRegisterContext {
 }
 
 interface IUser {
-  findIndex(arg0: (object: any) => boolean): unknown;
-  splice(index: unknown, arg1: number): unknown;
-  indexOf(arg0: string): unknown;
   name: string;
   cpf: string;
   email: string;
