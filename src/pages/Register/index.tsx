@@ -16,7 +16,7 @@ const Register = () => {
         <DoctorImg src={Doctor} alt="Doctor" />
         <FormRegister />
       </Div>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 };

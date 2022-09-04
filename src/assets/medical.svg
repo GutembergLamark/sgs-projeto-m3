@@ -1,7 +1,3 @@
-import React from "react";
-
-function MedicalLogin() {
-  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="500"
@@ -357,7 +353,3 @@ function MedicalLogin() {
       <path d="M499.5 316.106H504.5V353.106H499.5z" opacity="0.2"></path>
       <path d="M528.5 316.106H533.5V353.106H528.5z" opacity="0.2"></path>
     </svg>
-  );
-}
-
-export default MedicalLogin;

@@ -1,6 +1,5 @@
 import { Form } from "./styles";
 import Img from "../../assets/historicoVazio.svg";
-
 import ContentDashboardDoctor from "../../components/ContentDashboardDoctor";
 import { useNavigate } from "react-router-dom";
 

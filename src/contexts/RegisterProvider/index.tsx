@@ -50,6 +50,7 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
 
   const registerUser = (data: IUser) => {
     console.log(data);
+    console.log(data);
   };
 
   const signIn = async (data: IUserSignIn) => {

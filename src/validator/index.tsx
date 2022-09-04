@@ -10,3 +10,10 @@ export const formSchema = yup.object().shape({
     .required("Senha obrigatória")
     .oneOf([yup.ref("password")], "Senha deve ser idêntica"),
 });
+
+export const schema = yup
+  .object({
+    email: yup.string().required("E-mail obrigatório"),
+    password: yup.string().required("Senha obrigatória"),
+  })
+  .required();
