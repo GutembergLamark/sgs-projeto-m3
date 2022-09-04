@@ -23,6 +23,9 @@ interface IRegisterContext {
 }
 
 interface IUser {
+  findIndex(arg0: (object: any) => boolean): unknown;
+  splice(index: unknown, arg1: number): unknown;
+  indexOf(arg0: string): unknown;
   name: string;
   cpf: string;
   email: string;
@@ -40,7 +43,6 @@ export const RegisterContext = createContext<IRegisterContext>(
   {} as IRegisterContext
 );
 
-
 const RegisterProvider = ({ children }: IRegisterProvider) => {
   const {
     handleSubmit,
@@ -52,19 +54,20 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
 
   const registerUser = (data: IUser) => {
     console.log(data);
+    console.log(data);
   };
 
-  const signIn = async (data:IUserSignIn) =>{ 
-    try{
+  const signIn = async (data: IUserSignIn) => {
+    try {
       const response = await api.post("/login", data);
-    }catch(error){
-      console.log(error)
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   return (
     <RegisterContext.Provider
-      value={{signIn, handleSubmit, register, errors, registerUser }}
+      value={{ signIn, handleSubmit, register, errors, registerUser }}
     >
       {children}
     </RegisterContext.Provider>
@@ -72,4 +75,3 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
 };
 
 export default RegisterProvider;
-
