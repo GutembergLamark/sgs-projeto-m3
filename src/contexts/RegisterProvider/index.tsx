@@ -3,7 +3,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { createContext, ReactNode } from "react";
 import {
   FieldErrorsImpl,
-  FieldValues,
   useForm,
   UseFormHandleSubmit,
   UseFormRegister,
@@ -40,7 +39,6 @@ export const RegisterContext = createContext<IRegisterContext>(
   {} as IRegisterContext
 );
 
-
 const RegisterProvider = ({ children }: IRegisterProvider) => {
   const {
     handleSubmit,
@@ -54,17 +52,17 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
     console.log(data);
   };
 
-  const signIn = async (data:IUserSignIn) =>{ 
-    try{
+  const signIn = async (data: IUserSignIn) => {
+    try {
       const response = await api.post("/login", data);
-    }catch(error){
-      console.log(error)
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   return (
     <RegisterContext.Provider
-      value={{signIn, handleSubmit, register, errors, registerUser }}
+      value={{ signIn, handleSubmit, register, errors, registerUser }}
     >
       {children}
     </RegisterContext.Provider>
@@ -72,4 +70,3 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
 };
 
 export default RegisterProvider;
-

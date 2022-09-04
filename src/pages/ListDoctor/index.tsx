@@ -2,11 +2,20 @@ import ContentDashboardDoctor from "../../components/ContentDashboardDoctor";
 
 import Profile from "../../assets/ProfileTest.svg";
 
+import { BiArrowBack } from "react-icons/bi";
+
 import { Form, MainDashboard } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 const ListDoctor = () => {
+  const Navigate = useNavigate();
+
   return (
     <ContentDashboardDoctor>
+      <BiArrowBack
+        size={40}
+        onClick={() => Navigate("/dashboard/doctor", { replace: true })}
+      />
       <Form className="content__main__form">
         <input
           className="form__input"
