@@ -1,30 +1,17 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { RegisterContext } from "../../contexts/RegisterProvider";
+import { LoginContext } from "../../contexts/LoginProvider";
 import Input from "../InputRegister";
-import * as yup from "yup";
+
 import { useNavigate } from "react-router-dom";
 import { Back, ButtonSend, DivGeneral, Form } from "./styles";
 import { schema } from "../../validator";
 
-interface IFormInputs {
-  email: string;
-  password: number;
-}
-
 const FormLogin = () => {
-  const { signIn } = useContext(RegisterContext);
+  const { signIn, register, errors, handleSubmit } = useContext(LoginContext);
 
   const Navigate = useNavigate();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IFormInputs>({
-    resolver: yupResolver(schema),
-  });
 
   return (
     <>

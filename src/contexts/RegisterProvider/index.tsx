@@ -8,13 +8,14 @@ import {
   UseFormRegister,
 } from "react-hook-form";
 import { formSchema } from "../../validator";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 interface IRegisterProvider {
   children: ReactNode;
 }
 
 interface IRegisterContext {
-  signIn: (data: any) => Promise<void>;
   handleSubmit: UseFormHandleSubmit<IUser>;
   register: UseFormRegister<IUser>;
   errors: FieldErrorsImpl<IUser>;
@@ -26,13 +27,8 @@ interface IUser {
   cpf: string;
   email: string;
   password: string;
-  confirmPassword: string;
+  confirmPassword?: string;
   type: string;
-}
-
-interface IUserSignIn {
-  email: string;
-  password: number;
 }
 
 export const RegisterContext = createContext<IRegisterContext>(
@@ -48,22 +44,29 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
     resolver: yupResolver(formSchema),
   });
 
+  const navigate = useNavigate();
+
   const registerUser = (data: IUser) => {
     console.log(data);
-    console.log(data);
-  };
-
-  const signIn = async (data: IUserSignIn) => {
-    try {
-      const response = await api.post("/login", data);
-    } catch (error) {
-      console.log(error);
-    }
+    delete data.confirmPassword;
+    console.log(api);
+    api
+      .post("register", data)
+      .then((res) => {
+        navigate("/");
+        toast.success("Cadastro realizado com sucesso");
+        console.log(res);
+      })
+      .catch((err) => {
+        toast.error("Cadastro não realizado. Email já cadastrado");
+        console.log("requisição não realizada");
+        console.log(err);
+      });
   };
 
   return (
     <RegisterContext.Provider
-      value={{ signIn, handleSubmit, register, errors, registerUser }}
+      value={{ handleSubmit, register, errors, registerUser }}
     >
       {children}
     </RegisterContext.Provider>
