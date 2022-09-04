@@ -1,7 +1,7 @@
-import { DivButton, DivImage } from "./style";
-import ImageMedical from "../../assets/ImageDoctorSit.svg";
-import Modals from "../../components/Modals";
-import ContentPagePacient from "../../components/ContentPagePacient";
+import { DivButton, DivImage } from "../StylePagePacient/style";
+import ImageMedical from "../../../assets/ImageDoctorSit.svg";
+import Modals from "../../../components/Modals";
+import ContentPagePacient from "../../../components/ContentPagePacient";
 
 export const PageAllergiesPacient = () => {
   return (

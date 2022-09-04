@@ -1,6 +1,4 @@
-import { log } from "console";
 import styled from "styled-components";
-import Image from "../../assets/Fundo.png";
 
 export const DivImage = styled.div`
   width: 100%;
