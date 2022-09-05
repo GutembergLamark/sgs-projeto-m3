@@ -25,7 +25,7 @@ const Router = () => {
         element={<PageAllergiesPacient />}
       />
       <Route
-        path="/dashboard/patient/doenças"
+        path="/dashboard/patient/doencas"
         element={<PageDiseasePacient />}
       />
       <Route path="/dashboard/patient/exames" element={<PageExamsPacient />} />

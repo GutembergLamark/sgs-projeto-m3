@@ -6,8 +6,8 @@ import { ModalContext } from "../../../contexts/ModalProvider";
 import { useContext } from "react";
 
 export const PageDiseasePacient = () => {
-  const { Illnesses } = useContext(ModalContext);
 
+  const {Illnesses} = useContext(ModalContext)
   return (
     <ContentPagePacient>
       <DivImage className="div-image">

@@ -5,10 +5,8 @@ import ContentPagePacient from "../../../components/ContentPagePacient";
 import { useContext } from "react";
 import { ModalContext } from "../../../contexts/ModalProvider";
 
-
 export const PageAllergiesPacient = () => {
-  const { Allergy } = useContext(ModalContext);
-
+  const {Allergy} = useContext(ModalContext)
   return (
     <ContentPagePacient>
       <DivImage className="div-image">
@@ -16,7 +14,7 @@ export const PageAllergiesPacient = () => {
       </DivImage>
       <DivButton>
         <Modals
-        modalSent={Allergy}
+          modalSent={Allergy}
           nameButton={"Informar Alergia"}
           title={"Informar Alergia"}
           labelName={"Alergia"}
