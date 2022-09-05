@@ -9,11 +9,11 @@ interface IProvider {
 
 const Provider = ({ children }: IProvider) => {
   return (
-    <ModalProvider>
-      <LoginProvider>
+    <LoginProvider>
+      <ModalProvider>
         <RegisterProvider>{children}</RegisterProvider>
-      </LoginProvider>
-    </ModalProvider>
+      </ModalProvider>
+    </LoginProvider>
   );
 };
 
