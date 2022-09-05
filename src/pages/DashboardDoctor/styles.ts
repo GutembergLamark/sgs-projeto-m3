@@ -13,6 +13,7 @@ export const Form = styled.form`
   .form__input {
     border: 2px solid #d9d9d9;
     padding: 0.625rem;
+    width: 90%;
   }
 
   .form__input::placeholder {
