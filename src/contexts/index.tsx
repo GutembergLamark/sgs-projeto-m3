@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import DashboardDoctorProvider from "./DashboardDoctorProvider";
 import ModalProvider from "./ModalProvider";
 import RegisterProvider from "./RegisterProvider";
 
@@ -9,7 +10,9 @@ interface IProvider {
 const Provider = ({ children }: IProvider) => {
   return (
     <ModalProvider>
-      <RegisterProvider>{children}</RegisterProvider>
+      <RegisterProvider>
+        <DashboardDoctorProvider>{children}</DashboardDoctorProvider>
+      </RegisterProvider>
     </ModalProvider>
   );
 };

@@ -6,8 +6,12 @@ import { BiArrowBack } from "react-icons/bi";
 
 import { Form, MainDashboard } from "./styles";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { DashboardDoctorContext } from "../../contexts/DashboardDoctorProvider";
 
 const ListDoctor = () => {
+  const { userSearch } = useContext(DashboardDoctorContext);
+
   const Navigate = useNavigate();
 
   return (
@@ -29,7 +33,7 @@ const ListDoctor = () => {
           <figure className="container__containerImg">
             <img className="containerImg__img" src={Profile} alt="" />
           </figure>
-          <h1 className="container__name">Joãzin da Silva</h1>
+          <h1 className="container__name">{userSearch?.name}</h1>
         </div>
         <ul className="dashboard__historic">
           <li className="historic__type">Alergias</li>
