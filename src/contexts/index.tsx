@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import DashboardDoctorProvider from "./DashboardDoctorProvider";
+import LoginProvider from "./LoginProvider";
 import ModalProvider from "./ModalProvider";
 import RegisterProvider from "./RegisterProvider";
 
@@ -11,7 +12,9 @@ const Provider = ({ children }: IProvider) => {
   return (
     <ModalProvider>
       <RegisterProvider>
-        <DashboardDoctorProvider>{children}</DashboardDoctorProvider>
+        <LoginProvider>
+          <DashboardDoctorProvider>{children}</DashboardDoctorProvider>
+        </LoginProvider>
       </RegisterProvider>
     </ModalProvider>
   );
