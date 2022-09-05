@@ -6,6 +6,7 @@ import { ModalContext } from "../../../contexts/ModalProvider";
 import { useContext } from "react";
 
 export const PageDiseasePacient = () => {
+
   const {Illnesses} = useContext(ModalContext)
   return (
     <ContentPagePacient>
@@ -14,7 +15,7 @@ export const PageDiseasePacient = () => {
       </DivImage>
       <DivButton>
         <Modals
-        modalSent={Illnesses}
+          modalSent={Illnesses}
           nameButton={"Informar Doença"}
           title={"Informar Doença"}
           labelName={"Doença"}
