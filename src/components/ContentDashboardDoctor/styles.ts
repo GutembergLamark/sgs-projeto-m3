@@ -10,6 +10,16 @@ export const Main = styled.main`
 
     width: 70%;
 
+    position: relative;
+
+    svg {
+      position: absolute;
+      left: 10px;
+      top: 5px;
+
+      color: var(--color-primary);
+    }
+
     .content__empty {
       width: 200px;
     }
@@ -25,7 +35,7 @@ export const Main = styled.main`
 
   @media only screen and (min-width: 768px) {
     .content__main {
-      width: calc(100% - 215px); 
+      width: calc(100% - 215px);
     }
   }
 `;
