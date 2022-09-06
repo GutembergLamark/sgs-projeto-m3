@@ -5,9 +5,7 @@ import { useContext } from "react";
 import { DashboardDoctorContext } from "../../contexts/DashboardDoctorProvider";
 
 const DashboardDoctor = () => {
-  const { searchPatient, cpf, setCpf} = useContext(
-    DashboardDoctorContext
-  );
+  const { searchPatient, cpf, setCpf } = useContext(DashboardDoctorContext);
 
   return (
     <ContentDashboardDoctor>

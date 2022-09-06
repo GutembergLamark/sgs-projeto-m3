@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import api from "../../services/api";
 
 interface IDashboardDoctorProvider {
@@ -20,7 +21,7 @@ interface IDashboardDoctorContext {
   cpf: string;
   setCpf: React.Dispatch<React.SetStateAction<string>>;
   logout: () => void;
-  userSearch: IUser | null;
+  userSearch: IUser[] | null;
 }
 
 export const DashboardDoctorContext = createContext(
@@ -30,23 +31,31 @@ export const DashboardDoctorContext = createContext(
 const DashboardDoctorProvider = ({ children }: IDashboardDoctorProvider) => {
   const [cpf, setCpf] = useState("");
   const [userSearch, setUserSearch] = useState(null);
-  const [users, setUsers] = useState([]);
 
   const Navigate = useNavigate();
 
   const searchPatient = (cpf: string) => {
     api
-      .get("users", {
+      .get(`users?cpf=${cpf}`, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlNDBAbWFpbC5jb20iLCJpYXQiOjE2NjI0MDA0ODIsImV4cCI6MTY2MjQwNDA4Miwic3ViIjoiOCJ9.Ztjov87g47Rey6jQp818CB_AHj7HibQzwrq5Hd9LEbQ`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlNDJAbWFpbC5jb20iLCJpYXQiOjE2NjI0MjIxMDUsImV4cCI6MTY2MjQyNTcwNSwic3ViIjoiOCJ9.6aZ5TwXXokWBbJixwh_4lXZOJtpVUkF9xTz-QxD-RKc`,
         },
       })
       .then((res) => {
-        setUsers(res.data);
+        setUserSearch(res.data);
+
+        if (res.data[0]?.type === "paciente") {
+          Navigate("/dashboard/doctor:id", { replace: true });
+        } else {
+          toast.error("CPF não encontrado");
+          Navigate("/dashboard/doctor", { replace: true });
+        }
+      })
+      .catch(() => {
+        toast.error("Ops, algo deu errado :(");
       });
-    console.log(users);
-    /* setUserSearch(users?.find((user: IUser) => user.cpf === cpf)); */
-    userSearch && Navigate("/dashboard/doctor:id", { replace: true });
+
+    setCpf("");
   };
 
   const logout = () => {
