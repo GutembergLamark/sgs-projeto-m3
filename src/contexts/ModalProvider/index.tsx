@@ -14,11 +14,11 @@ interface IModalProvider {
 }
 
 interface IRegister {
-  description: string;
-  name: string;
+  description?: string;
+  name?: string;
 }
 
-/* interface IModalContext {
+interface IModalContext {
   handleSubmit: UseFormHandleSubmit<IRegister>;
   Allergy: (data: IRegister) => void;
   Illnesses: (data: IRegister) => void;
@@ -27,13 +27,13 @@ interface IRegister {
   register: UseFormRegister<IRegister>;
   errors: FieldErrorsImpl<IRegister>;
   isSubmitting: boolean;
-  allergys: IRegister[];
-  illnesses: IRegister[];
-  exams: IRegister[];
-  medicines: IRegister[];
-} */
+  allergys?: IRegister[];
+  illnesses?: IRegister[];
+  exams?: IRegister[];
+  medicines?: IRegister[];
+}
 
-export const ModalContext = createContext({} as any);
+export const ModalContext = createContext({} as IModalContext);
 const ModalProvider = ({ children }: IModalProvider) => {
   const {
     handleSubmit,
@@ -92,9 +92,7 @@ const ModalProvider = ({ children }: IModalProvider) => {
         console.log(res.data);
       })
       .catch((err) => {
-        toast.error(
-          "Cadastro não realizado. Por favor, tente novamente mais tarde !"
-        );
+        toast.error("Cadastro não realizado. Por favor, tente novamente!");
         console.log(err);
       });
   };

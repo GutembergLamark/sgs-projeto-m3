@@ -21,32 +21,32 @@ const Router = () => {
       <Route path="/dashboard/doctor" element={<DashboardDoctor />} />
       <Route path="/dashboard/patient" element={<DashboardPacient />} />
       <Route
-        path="/dashboard/patient/alergias"
+        path="/dashboard/patient/allergies"
         element={<PageAllergiesPacient />}
       />
       <Route
-        path="/dashboard/patient/doencas"
+        path="/dashboard/patient/disease"
         element={<PageDiseasePacient />}
       />
-      <Route path="/dashboard/patient/exames" element={<PageExamsPacient />} />
+      <Route path="/dashboard/patient/exams" element={<PageExamsPacient />} />
       <Route
-        path="/dashboard/patient/remedios"
+        path="/dashboard/patient/medicines"
         element={<PageMedicinesPacient />}
       />
       <Route
-        path="/dashboard/patient/alergias/historico"
+        path="/dashboard/patient/allergies/historic"
         element={<HistoryAllergies />}
       />
       <Route
-        path="/dashboard/patient/doenças/historico"
+        path="/dashboard/patient/disease/historic"
         element={<HistoryDisease />}
       />
       <Route
-        path="/dashboard/patient/exames/historico"
+        path="/dashboard/patient/exams/historic"
         element={<HistoryExams />}
       />
       <Route
-        path="/dashboard/patient/remedios/historico"
+        path="/dashboard/patient/medicines/historic"
         element={<HistoryMedicines />}
       />
       <Route path="/dashboard/doctor:id" element={<ListDoctor />} />
