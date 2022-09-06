@@ -1,5 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { createContext, ReactNode } from "react";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useState,
+} from "react";
 import { schema } from "../../validator";
 
 import {
@@ -21,11 +27,38 @@ interface IUserSignIn {
   password: string;
 }
 
+interface IPaciente {
+  email: string;
+  name: string;
+  cpf: string;
+  type: string;
+  /* alergias?: string[];
+  doencas?: string[];
+  exames?: string[];
+  remedios?: string[]; */
+  id: string;
+}
+
 interface ILoginContext {
   handleSubmit: UseFormHandleSubmit<IUserSignIn>;
   register: UseFormRegister<IUserSignIn>;
   errors: FieldErrorsImpl<IUserSignIn>;
   signIn: (data: IUserSignIn) => void;
+  user: IUser;
+  setUser: (data: IUser) => void;
+}
+
+interface IUser {
+  email: string;
+  name: string;
+  cpf: string;
+  type: string;
+  userId?: string;
+  alergias?: string[];
+  doencas?: string[];
+  exames?: string[];
+  remedios?: string[];
+  id?: number;
 }
 
 export const LoginContext = createContext<ILoginContext>({} as ILoginContext);
@@ -39,6 +72,8 @@ const LoginProvider = ({ children }: ILoginProvider) => {
     resolver: yupResolver(schema),
   });
 
+  const [user, setUser] = useState<IUser>({} as IUser);
+
   const navigate = useNavigate();
 
   const signIn = async (data: IUserSignIn) => {
@@ -48,8 +83,9 @@ const LoginProvider = ({ children }: ILoginProvider) => {
       .then((res) => {
         console.log(res);
         //setUser(res.data.user);
+
         localStorage.clear();
-        localStorage.setItem("@sgs:user", res.data.user.id);
+        setUser(res.data.user);
         localStorage.setItem("@sgs:token", res.data.accessToken);
         toast.success("Login realizado com sucesso");
         if (res.data.user.type === "paciente") {
@@ -65,7 +101,9 @@ const LoginProvider = ({ children }: ILoginProvider) => {
   };
 
   return (
-    <LoginContext.Provider value={{ signIn, register, errors, handleSubmit }}>
+    <LoginContext.Provider
+      value={{ signIn, register, errors, handleSubmit, user, setUser }}
+    >
       {children}
     </LoginContext.Provider>
   );
