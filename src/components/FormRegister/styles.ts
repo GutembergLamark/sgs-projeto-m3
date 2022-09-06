@@ -10,6 +10,8 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 40px;
+  padding: 20px 0;
 
   h1 {
     font-size: 22px;
