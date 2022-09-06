@@ -20,7 +20,7 @@ export const LoginContaine = styled.div`
     width: 30%;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     main {
       min-height: 100vh;
       flex-direction: column;
@@ -61,7 +61,7 @@ export const Header = styled.header`
     font-weight: bold;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     h1 {
       font-size: 30px;
     }

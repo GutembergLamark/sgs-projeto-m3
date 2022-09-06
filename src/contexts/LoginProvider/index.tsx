@@ -86,12 +86,9 @@ const LoginProvider = ({ children }: ILoginProvider) => {
         localStorage.setItem("@sgs:token", res.data.accessToken);
         localStorage.setItem("@sgs:id", res.data.user.id);
         toast.success("Login realizado com sucesso");
-
-        if (res.data.user.type === "paciente") {
-          navigate("/dashboard/patient/allergies/historic");
-        } else {
-          navigate("/dashboard/doctor");
-        }
+        res.data.user.type === "paciente"
+          ? navigate("/dashboard/patient", { replace: true })
+          : navigate("dashboar/doctor", { replace: true });
       })
       .catch((err) => {
         toast.error("Email ou senha incorretos ou não cadastrados");

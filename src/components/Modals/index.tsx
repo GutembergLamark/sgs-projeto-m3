@@ -103,6 +103,7 @@ const Modals = ({
                       transition: "0.3s",
                     }}
                     type={"submit"}
+                    onClick={onClose}
                   >
                     {sendButton}
                   </Button>

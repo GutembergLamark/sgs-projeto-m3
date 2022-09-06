@@ -3,6 +3,7 @@ import { GiExitDoor } from "react-icons/gi";
 import { DashboardDoctorContext } from "../../contexts/DashboardDoctorProvider";
 import { LoginContext } from "../../contexts/LoginProvider";
 import { Aside } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 const MenuAsideDoctor = () => {
   const { logout } = useContext(DashboardDoctorContext);
