@@ -88,7 +88,7 @@ const LoginProvider = ({ children }: ILoginProvider) => {
         toast.success("Login realizado com sucesso");
 
         if (res.data.user.type === "paciente") {
-          navigate("/dashboard/patient");
+          navigate("/dashboard/patient/allergies/historic");
         } else {
           navigate("/dashboard/doctor");
         }
