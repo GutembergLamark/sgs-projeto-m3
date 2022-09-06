@@ -15,6 +15,11 @@ import {
 } from "@chakra-ui/react";
 import { ModalContext } from "../../contexts/ModalProvider";
 
+interface IRegister {
+  description?: string;
+  name?: string;
+}
+
 interface IModal {
   title: string;
   labelName: string;
@@ -23,7 +28,7 @@ interface IModal {
   placeholderDescription: string;
   nameButton: string;
   sendButton: string;
-  modalSent: () => void;
+  modalSent: (data: IRegister) => void;
 }
 
 const Modals = ({
@@ -72,7 +77,7 @@ const Modals = ({
               <FormControl>
                 <FormLabel>{labelName}</FormLabel>
                 <Input
-                  ref={initialRef}
+                  /* ref={initialRef} */
                   placeholder={placeholderName}
                   {...register("name")}
                 />

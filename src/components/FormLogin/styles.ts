@@ -10,7 +10,7 @@ export const Form = styled.form`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  bottom: 0;
+  margin-bottom: 50px;
 
   h1 {
     font-size: 22px;

@@ -1,74 +1,15 @@
 import styled from "styled-components";
 
-export const Form = styled.form`
-  padding: 50px 0 0 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-
-  margin-bottom: 50px;
-
-  .form__input {
-    border: 2px solid #d9d9d9;
-    padding: 0.625rem;
-    width: 90%;
-  }
-
-  .form__input::placeholder {
-    color: #d9d9d9;
-  }
-
-  .form__input:focus {
-    outline: none;
-  }
-
-  .form__button {
-    background-color: #0b8899;
-    color: white;
-
-    padding: 0.625rem;
-
-    border-radius: 5px;
-  }
-
-  @media only screen and (min-width: 586px) {
-    width: 70%;
-
-    .form__input {
-      width: 100%;
-    }
-
-    .form__button {
-      width: 50%;
-    }
-  }
-
-  @media only screen and (min-width: 768px) {
-    flex-direction: row;
-    justify-content: center;
-    gap: 0;
-
-    .form__input {
-      width: 450px;
-    }
-    .form__button {
-      width: 190px;
-
-      border-radius: 0 5px 5px 0;
-
-      font-size: 1rem;
-    }
-  }
-`;
-
 export const MainDashboard = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  padding: 1.25rem;
 
   width: 100%;
+  height: 100%;
 
   @media only screen and (min-width: 768px) {
     & {
@@ -80,7 +21,6 @@ export const MainDashboard = styled.main`
     display: flex;
     align-items: center;
     gap: 0.625rem;
-    margin-bottom: 1.875rem;
   }
 
   @media only screen and (min-width: 586px) {
@@ -99,7 +39,7 @@ export const MainDashboard = styled.main`
 
   @media only screen and (min-width: 768px) {
     .containerImg__img {
-      width: 80px;
+      width: 70px;
     }
   }
 
@@ -109,8 +49,13 @@ export const MainDashboard = styled.main`
 
   @media only screen and (min-width: 768px) {
     .container__name {
-      font-size: 1rem;
+      font-size: 1.25rem;
     }
+  }
+
+  .dashboard__type {
+    color: var(--color-primary);
+    padding: 1.25rem;
   }
 
   .dashboard__historic {
@@ -143,7 +88,15 @@ export const MainDashboard = styled.main`
   @media only screen and (min-width: 768px) {
     .dashboard__historic {
       .historic__type {
-        width: 495px;
+        width: 50vw;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 1500px) {
+    .dashboard__historic {
+      .historic__type {
+        width: 750px;
       }
     }
   }

@@ -5,6 +5,8 @@ export const LoginContaine = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100%;
+  height: 100vh;
 
   main {
     width: 100%;
@@ -20,8 +22,9 @@ export const LoginContaine = styled.div`
 
   @media (max-width: 768px) {
     main {
-      justify-content: flex-start;
+      min-height: 100vh;
       flex-direction: column;
+      justify-content: center;
     }
 
     img {
