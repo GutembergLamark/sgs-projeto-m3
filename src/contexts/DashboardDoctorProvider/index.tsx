@@ -35,10 +35,12 @@ const DashboardDoctorProvider = ({ children }: IDashboardDoctorProvider) => {
   const Navigate = useNavigate();
 
   const searchPatient = (cpf: string) => {
+    const token = localStorage.getItem("@sgs:token");
+
     api
       .get(`users?cpf=${cpf}`, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlNDJAbWFpbC5jb20iLCJpYXQiOjE2NjI0MjIxMDUsImV4cCI6MTY2MjQyNTcwNSwic3ViIjoiOCJ9.6aZ5TwXXokWBbJixwh_4lXZOJtpVUkF9xTz-QxD-RKc`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
