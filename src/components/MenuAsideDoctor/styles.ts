@@ -11,6 +11,8 @@ export const Aside = styled.aside`
   flex-direction: column;
   justify-content: space-between;
 
+  position: fixed;
+
   box-shadow: 9px 5px 9px -5px rgba(0, 0, 0, 0.25);
 
   @media only screen and (min-width: 768px) {

@@ -21,7 +21,7 @@ export const Form = styled.form`
   }
 
   .form__input:focus {
-    outline: 2px solid #000;
+    outline: none;
   }
 
   .form__button {

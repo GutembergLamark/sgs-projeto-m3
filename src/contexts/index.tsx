@@ -10,13 +10,13 @@ interface IProvider {
 
 const Provider = ({ children }: IProvider) => {
   return (
-    <ModalProvider>
+    <LoginProvider>
       <RegisterProvider>
-        <LoginProvider>
+        <ModalProvider>
           <DashboardDoctorProvider>{children}</DashboardDoctorProvider>
-        </LoginProvider>
+        </ModalProvider>
       </RegisterProvider>
-    </ModalProvider>
+    </LoginProvider>
   );
 };
 

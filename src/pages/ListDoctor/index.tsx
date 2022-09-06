@@ -48,7 +48,16 @@ const ListDoctor = () => {
           </h1>
         </div>
         <ul className="dashboard__historic">
-          <li className="historic__type">Alergias</li>
+          <li
+            className="historic__type"
+            onClick={() =>
+              Navigate("/dashboard/doctor/historic/alergias:id", {
+                replace: true,
+              })
+            }
+          >
+            Alergias
+          </li>
           <li className="historic__type">Doenças</li>
           <li className="historic__type">Exames</li>
           <li className="historic__type">Remédios</li>
