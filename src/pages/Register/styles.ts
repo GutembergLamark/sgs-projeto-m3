@@ -19,7 +19,7 @@ export const Header = styled.header`
     font-weight: bold;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     h1 {
       font-size: 30px;
     }
@@ -34,7 +34,7 @@ export const Div = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     flex-direction: row;
     width: 100%;
     display: flex;
@@ -47,7 +47,7 @@ export const Div = styled.div`
 export const DoctorImg = styled.img`
   width: 0%;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     width: 35%;
   }
 `;
@@ -57,7 +57,7 @@ export const PacientImg = styled.img`
   margin-top: 30px;
   margin-bottom: 25px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     width: 0%;
   }
 `;

@@ -1,5 +1,6 @@
 import { GiExitDoor } from "react-icons/gi";
 import { Aside } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 const MenuAsideDoctor = () => {
   return (

@@ -4,7 +4,6 @@ export const Form = styled.form`
   width: 320px;
   height: 320px;
   background: #fffbfb;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 13px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -25,7 +24,7 @@ export const Form = styled.form`
     color: #000000;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     h1 {
       font-size: 26px;
     }
@@ -34,6 +33,11 @@ export const Form = styled.form`
       font-size: 14px;
       color: #000000;
     }
+  }
+
+  @media (min-width: 350px) {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      4px 0px 13px rgba(0, 0, 0, 0.25);
   }
 `;
 
@@ -77,7 +81,7 @@ export const DivGeneral = styled.div`
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
   }
 `;
 
@@ -94,7 +98,7 @@ export const Back = styled.button`
     text-decoration: underline;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     font-size: 14px;
   }
 `;
@@ -111,7 +115,7 @@ export const ButtonSend = styled.button`
   padding: 5px;
   margin-top: 25px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     width: 250px;
     height: 40px;
     font-size: 15px;

@@ -4,7 +4,6 @@ export const Form = styled.form`
   width: 320px;
   height: 520px;
   background: #fffbfb;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 13px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -38,7 +37,7 @@ export const Form = styled.form`
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     height: 600px;
     padding: 5px;
     justify-content: space-evenly;
@@ -46,6 +45,11 @@ export const Form = styled.form`
     h1 {
       font-size: 26px;
     }
+  }
+
+  @media (min-width: 350px) {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      4px 0px 13px rgba(0, 0, 0, 0.25);
   }
 `;
 
@@ -80,7 +84,7 @@ export const DivGeneral = styled.div`
     padding-left: 8px;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     gap: 10px;
 
     label {
@@ -111,7 +115,7 @@ export const ButtonSend = styled.button`
   font-size: 13px;
   padding: 5px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     width: 250px;
     height: 40px;
     font-size: 15px;

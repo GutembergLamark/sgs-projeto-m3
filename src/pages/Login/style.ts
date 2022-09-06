@@ -11,14 +11,14 @@ export const LoginContaine = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 90vh;
+    height: 100%;
   }
 
   img {
     width: 30%;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     main {
       justify-content: flex-start;
       flex-direction: column;
@@ -58,7 +58,7 @@ export const Header = styled.header`
     font-weight: bold;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     h1 {
       font-size: 30px;
     }
