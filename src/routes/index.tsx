@@ -12,14 +12,18 @@ import { HistoryAllergies } from "../pages/HistoricPatient/HistoricAllergies";
 import { HistoryDisease } from "../pages/HistoricPatient/HistoricDisease";
 import { HistoryExams } from "../pages/HistoricPatient/HistoricExams";
 import { HistoryMedicines } from "../pages/HistoricPatient/HistoricMedicines";
+import AllergiesHistoric from "../pages/HistoricDoctor/AllergiesHistoric";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/dashboard/doctor" element={<DashboardDoctor />} />
-      <Route path="/dashboard/patient" element={<DashboardPacient />} />
+      <Route element={<ProtectedRoutes />}>
+        <Route path="/dashboard/doctor" element={<DashboardDoctor />} />
+        <Route path="/dashboard/patient" element={<DashboardPacient />} />
+      </Route>
       <Route
         path="/dashboard/patient/allergies"
         element={<PageAllergiesPacient />}
@@ -50,6 +54,10 @@ const Router = () => {
         element={<HistoryMedicines />}
       />
       <Route path="/dashboard/doctor:id" element={<ListDoctor />} />
+      <Route
+        path="/dashboard/doctor/historic/alergias:id"
+        element={<AllergiesHistoric />}
+      />
     </Routes>
   );
 };

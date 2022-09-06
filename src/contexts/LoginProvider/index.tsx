@@ -1,11 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useState,
-} from "react";
+import { createContext, ReactNode, useState } from "react";
 import { schema } from "../../validator";
 
 import {
@@ -46,6 +40,8 @@ interface ILoginContext {
   signIn: (data: IUserSignIn) => void;
   user: IUser;
   setUser: (data: IUser) => void;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface IUser {
@@ -73,6 +69,7 @@ const LoginProvider = ({ children }: ILoginProvider) => {
   });
 
   const [user, setUser] = useState<IUser>({} as IUser);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -82,12 +79,14 @@ const LoginProvider = ({ children }: ILoginProvider) => {
       .post("/login", data)
       .then((res) => {
         console.log(res);
-        //setUser(res.data.user);
 
         localStorage.clear();
         setUser(res.data.user);
+
         localStorage.setItem("@sgs:token", res.data.accessToken);
+        localStorage.setItem("@sgs:id", res.data.user.id);
         toast.success("Login realizado com sucesso");
+
         if (res.data.user.type === "paciente") {
           navigate("/dashboard/patient/allergies/historic");
         } else {
@@ -102,7 +101,16 @@ const LoginProvider = ({ children }: ILoginProvider) => {
 
   return (
     <LoginContext.Provider
-      value={{ signIn, register, errors, handleSubmit, user, setUser }}
+      value={{
+        signIn,
+        register,
+        errors,
+        handleSubmit,
+        user,
+        setUser,
+        loading,
+        setLoading,
+      }}
     >
       {children}
     </LoginContext.Provider>

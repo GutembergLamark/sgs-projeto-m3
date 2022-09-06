@@ -4,8 +4,11 @@ import ContentDashboardDoctor from "../../components/ContentDashboardDoctor";
 import { useContext } from "react";
 import { DashboardDoctorContext } from "../../contexts/DashboardDoctorProvider";
 
+
 const DashboardDoctor = () => {
   const { searchPatient, cpf, setCpf } = useContext(DashboardDoctorContext);
+
+  
 
   return (
     <ContentDashboardDoctor>

@@ -16,7 +16,7 @@ const Provider = ({ children }: IProvider) => {
         <ModalProvider>
           <PatientProvider>
             <DashboardDoctorProvider>{children}</DashboardDoctorProvider>
-          </PatientProvider>
+          </PatientProvider>    
         </ModalProvider>
       </RegisterProvider>
     </LoginProvider>

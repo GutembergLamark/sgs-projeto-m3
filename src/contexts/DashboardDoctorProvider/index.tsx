@@ -1,10 +1,19 @@
-import { createContext, ReactNode, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useState,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 
 interface IDashboardDoctorProvider {
   children: ReactNode;
+}
+
+interface IHistoric {
+  name: string;
+  description: string;
 }
 
 interface IUser {
@@ -14,6 +23,10 @@ interface IUser {
   name: string;
   password: string;
   type: string;
+  alergias?: IHistoric[];
+  doencas?: IHistoric[];
+  remedios?: IHistoric[];
+  exames?: IHistoric[];
 }
 
 interface IDashboardDoctorContext {

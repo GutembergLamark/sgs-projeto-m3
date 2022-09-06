@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { GiExitDoor } from "react-icons/gi";
 import { DashboardDoctorContext } from "../../contexts/DashboardDoctorProvider";
+import { LoginContext } from "../../contexts/LoginProvider";
 import { Aside } from "./styles";
 
 const MenuAsideDoctor = () => {
   const { logout } = useContext(DashboardDoctorContext);
+  const { user } = useContext(LoginContext);
 
   return (
     <Aside>
@@ -19,7 +21,7 @@ const MenuAsideDoctor = () => {
         <h1 className="header__title">S.G.S</h1>
       </header>
       <footer className="menu__side__footer">
-        <h2 className="footer__name">José da Silva</h2>
+        <h2 className="footer__name">{user.name}</h2>
         <button className="footer__button" onClick={() => logout()}>
           <GiExitDoor />
           Sair
