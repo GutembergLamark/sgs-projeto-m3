@@ -1,8 +1,11 @@
 import Image2 from "../../assets/FundoClaro.png";
 import { Aside } from "./style";
 import { GiExitDoor } from "react-icons/gi";
+import { useContext } from "react";
+import { LoginContext } from "../../contexts/LoginProvider";
 
 export const MenuAsidePacient = () => {
+  const { user } = useContext(LoginContext);
   return (
     <Aside Image={Image2}>
       <div className="div-logo">
@@ -20,7 +23,7 @@ export const MenuAsidePacient = () => {
         <p>Remédios</p>
       </div>
       <div className="div-exit">
-        <span>*Nome*</span>
+        <span>{user.name}</span>
         <button className="footer__button">
           <GiExitDoor />
           Sair
