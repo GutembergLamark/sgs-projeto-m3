@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Main = styled.main`
   display: flex;
 
+  position: relative;
+
   .content__main {
     display: flex;
     flex-direction: column;
@@ -10,7 +12,9 @@ export const Main = styled.main`
 
     width: 70%;
 
-    position: relative;
+    position: absolute;
+
+    right: 0;
 
     svg {
       position: absolute;

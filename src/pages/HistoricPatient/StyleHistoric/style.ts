@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface IProps {
+  Image: string;
+}
+
 export const DivGeneral = styled.div`
   width: 100vw;
   height: 100vh;
@@ -14,7 +18,7 @@ export const SectionGeneral = styled.section`
   justify-content: center;
   align-items: center;
   gap: 50px;
-  background: url(${(Image: any) => Image.Image});
+  background: url(${(Image: IProps) => Image.Image});
   h1 {
     color: #0b8899;
     border-bottom: 2px solid #0b8899;
