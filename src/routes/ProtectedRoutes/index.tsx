@@ -31,7 +31,7 @@ const ProtectedRoutes = () => {
       setLoading(false);
     };
     loadUser();
-  }, []);
+  }, [setLoading, setUser]);
 
   return loading ? (
     <Preload />

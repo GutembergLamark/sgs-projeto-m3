@@ -14,6 +14,9 @@ import { HistoryExams } from "../pages/HistoricPatient/HistoricExams";
 import { HistoryMedicines } from "../pages/HistoricPatient/HistoricMedicines";
 import AllergiesHistoric from "../pages/HistoricDoctor/AllergiesHistoric";
 import ProtectedRoutes from "./ProtectedRoutes";
+import DiseasesHistoric from "../pages/HistoricDoctor/DiseaseHistoric";
+import ExamsHistoric from "../pages/HistoricDoctor/ExamsHistoric";
+import MedicinesHistoric from "../pages/HistoricDoctor/MedicinesHistoric";
 
 const Router = () => {
   return (
@@ -53,10 +56,22 @@ const Router = () => {
         path="/dashboard/patient/medicines/historic"
         element={<HistoryMedicines />}
       />
-      <Route path="/dashboard/doctor:id" element={<ListDoctor />} />
+      <Route path="/dashboard/doctor/patient" element={<ListDoctor />} />
       <Route
-        path="/dashboard/doctor/historic/alergias:id"
+        path="/dashboard/doctor/patient/allergy"
         element={<AllergiesHistoric />}
+      />
+      <Route
+        path="/dashboard/doctor/patient/disease"
+        element={<DiseasesHistoric />}
+      />
+      <Route
+        path="/dashboard/doctor/patient/exams"
+        element={<ExamsHistoric />}
+      />
+      <Route
+        path="/dashboard/doctor/patient/medicines"
+        element={<MedicinesHistoric />}
       />
     </Routes>
   );

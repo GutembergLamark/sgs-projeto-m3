@@ -1,8 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useState,
-} from "react";
+import { createContext, ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
@@ -60,7 +56,7 @@ const DashboardDoctorProvider = ({ children }: IDashboardDoctorProvider) => {
         setUserSearch(res.data);
 
         if (res.data[0]?.type === "paciente") {
-          Navigate("/dashboard/doctor:id", { replace: true });
+          Navigate("/dashboard/doctor/patient", { replace: true });
         } else {
           toast.error("CPF não encontrado");
           Navigate("/dashboard/doctor", { replace: true });
