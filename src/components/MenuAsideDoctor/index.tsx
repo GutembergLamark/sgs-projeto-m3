@@ -12,8 +12,6 @@ const MenuAsideDoctor = ({ children }: IProps) => {
   const { logout } = useContext(DashboardDoctorContext);
   const { user } = useContext(LoginContext);
 
-  const name = user.name.split(" ")[0];
-
   return (
     <Aside>
       <header className="menu__side__header">
@@ -26,9 +24,9 @@ const MenuAsideDoctor = ({ children }: IProps) => {
         </figure>
         <h1 className="header__title">S.G.S</h1>
       </header>
-      <main>{children}</main>
+      {children}
       <footer className="menu__side__footer">
-        <h2 className="footer__name">Olá, {name}</h2>
+        <h2 className="footer__name">Olá, {user.name}</h2>
         <button className="footer__button" onClick={() => logout()}>
           <GiExitDoor />
           Sair

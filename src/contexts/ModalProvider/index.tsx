@@ -44,7 +44,6 @@ const ModalProvider = ({ children }: IModalProvider) => {
   const { user, setUser } = useContext(LoginContext);
   const token = localStorage.getItem("@sgs:token");
   const idUsuario = user.id;
-  console.log(idUsuario);
 
   const [allergys, setAllergy] = useState<IRegister[]>([]);
   const [illnesses, setIIllnesses] = useState<IRegister[]>([]);
@@ -65,7 +64,6 @@ const ModalProvider = ({ children }: IModalProvider) => {
       .then((res) => {
         setUser(res.data);
         toast.success("Alergia cadastrada  com sucesso");
-        console.log(res.data);
       })
       .catch((err) => {
         toast.error(

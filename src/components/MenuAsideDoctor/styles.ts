@@ -69,6 +69,10 @@ export const Aside = styled.aside`
 
     .footer__name {
       font-size: 0.75rem;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     button {

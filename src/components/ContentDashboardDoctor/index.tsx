@@ -9,7 +9,9 @@ interface IDashboardProps {
 const ContentDashboardDoctor = ({ children }: IDashboardProps) => {
   return (
     <Main>
-      <MenuAsideDoctor />
+      <MenuAsideDoctor>
+        <main></main>
+      </MenuAsideDoctor>
       <section className="content__main">{children}</section>
     </Main>
   );
