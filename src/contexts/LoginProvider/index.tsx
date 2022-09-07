@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { schema } from "../../validator";
 
 import {
@@ -71,15 +71,37 @@ const LoginProvider = ({ children }: ILoginProvider) => {
   const [user, setUser] = useState<IUser>({} as IUser);
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const loadUser = async () => {
+      const token = localStorage.getItem("@sgs:token");
+      const id = localStorage.getItem("@sgs:id");
+
+      if (token) {
+        api
+          .get(`/users/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then(({ data }) => {
+            setUser(data);
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.error("Ops, algo deu errado :(");
+          });
+      }
+      setLoading(false);
+    };
+    loadUser();
+  }, [setLoading, setUser]);
+
   const navigate = useNavigate();
 
   const signIn = async (data: IUserSignIn) => {
-    console.log(data);
     api
       .post("/login", data)
       .then((res) => {
-        console.log(res);
-
         localStorage.clear();
         setUser(res.data.user);
 

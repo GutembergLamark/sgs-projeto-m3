@@ -51,16 +51,43 @@ const ListDoctor = () => {
           <li
             className="historic__type"
             onClick={() =>
-              Navigate("/dashboard/doctor/historic/alergias:id", {
+              Navigate("/dashboard/doctor/patient/allergy", {
                 replace: true,
               })
             }
           >
             Alergias
           </li>
-          <li className="historic__type">Doenças</li>
-          <li className="historic__type">Exames</li>
-          <li className="historic__type">Remédios</li>
+          <li
+            className="historic__type"
+            onClick={() =>
+              Navigate("/dashboard/doctor/patient/disease", {
+                replace: true,
+              })
+            }
+          >
+            Doenças
+          </li>
+          <li
+            className="historic__type"
+            onClick={() =>
+              Navigate("/dashboard/doctor/patient/exams", {
+                replace: true,
+              })
+            }
+          >
+            Exames
+          </li>
+          <li
+            className="historic__type"
+            onClick={() =>
+              Navigate("/dashboard/doctor/patient/medicines", {
+                replace: true,
+              })
+            }
+          >
+            Remédios
+          </li>
         </ul>
       </MainDashboard>
     </ContentDashboardDoctor>

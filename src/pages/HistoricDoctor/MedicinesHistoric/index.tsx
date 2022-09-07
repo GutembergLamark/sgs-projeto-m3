@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
-const AllergiesHistoric = () => {
+const MedicinesHistoric = () => {
   const { userSearch } = useContext(DashboardDoctorContext);
 
   const Navigate = useNavigate();
@@ -25,16 +25,16 @@ const AllergiesHistoric = () => {
             {userSearch && userSearch[0].name}
           </h1>
         </div>
-        <h2 className="dashboard__type">Alergias</h2>
+        <h2 className="dashboard__type">Doenças</h2>
         <ul className="dashboard__historic">
           {userSearch &&
-            userSearch[0].alergias?.map((alergia, index) => {
+            userSearch[0].remedios?.map((remedio, index) => {
               return (
                 <li key={index} className="historic__type">
-                  <h3>Alergia: {alergia.name}</h3>
+                  <h3>Alergia: {remedio.name}</h3>
                   <details>
                     <summary>Descrição:</summary>
-                    <p className="p-description">{alergia.description}</p>
+                    <p className="p-description">{remedio.description}</p>
                   </details>
                 </li>
               );
@@ -45,4 +45,4 @@ const AllergiesHistoric = () => {
   );
 };
 
-export default AllergiesHistoric;
+export default MedicinesHistoric;
