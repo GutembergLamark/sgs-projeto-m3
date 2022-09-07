@@ -3,7 +3,6 @@ import { GiExitDoor } from "react-icons/gi";
 import { DashboardDoctorContext } from "../../contexts/DashboardDoctorProvider";
 import { LoginContext } from "../../contexts/LoginProvider";
 import { Aside } from "./styles";
-import { useNavigate } from "react-router-dom";
 
 interface IProps {
   children?: ReactNode;
@@ -27,7 +26,7 @@ const MenuAsideDoctor = ({ children }: IProps) => {
       </header>
       <main>{children}</main>
       <footer className="menu__side__footer">
-        <h2 className="footer__name">{user.name}</h2>
+        <h2 className="footer__name">Olá, {user.name}</h2>
         <button className="footer__button" onClick={() => logout()}>
           <GiExitDoor />
           Sair
