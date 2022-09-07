@@ -1,65 +1,43 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { boolean } from "yup";
+import { useNavigate, useParams } from "react-router-dom";
 import { Aside } from "./style";
-
-interface IMenu {
-  allergies: boolean;
-}
 
 export const MenuAsidePacient = () => {
   const Navigate = useNavigate();
 
-  // const { allergies, setAllergies } = useState<boolean>(false);
-  // const { disease, setDisease } = useState(false);
-  // const { exams, setExams } = useState(false);
-  // const { medicines, setMedicines } = useState<boolean>(false);
-
+  const { allergies } = useParams();
+  
   return (
-    <Aside>
+    <Aside route={allergies}>
       <ul>
         <li
-          className="p-alergias"
-          onClick={
-            () => Navigate("/dashboard/patient/allergies")
-            // setAllergies(true)
-            // setDisease(false)
-            // setExams(false)
-            // setMedicines(false)
-          }
+          className="p__alergias"
+          onClick={() => {
+            Navigate("/dashboard/patient/allergies");
+          }}
         >
           Alergias
         </li>
         <li
-          onClick={
-            () => Navigate("/dashboard/patient/disease")
-            //  setAllergies(false)
-            //  setDisease(true)
-            //  setExams(false)
-            //  setMedicines(false)
-          }
+          className="p__doencas"
+          onClick={() => {
+            Navigate("/dashboard/patient/disease");
+          }}
         >
           Doenças
         </li>
         <li
-          onClick={
-            () => Navigate("/dashboard/patient/exams")
-            //  setAllergies(false)
-            //  setDisease(false)
-            //  setExams(true)
-            //  setMedicines(false)
-          }
+          className="p__exames"
+          onClick={() => {
+            Navigate("/dashboard/patient/exams");
+          }}
         >
           Exames
         </li>
         <li
-          onClick={
-            () => Navigate("/dashboard/patient/medicines")
-            //  setAllergies(false)
-            //  setDisease(false)
-            //  setExams(false)
-            //  setMedicines(true)
-          }
+          className="p__remedios"
+          onClick={() => {
+            Navigate("/dashboard/patient/medicines");
+          }}
         >
           Remédios
         </li>

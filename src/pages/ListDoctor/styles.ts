@@ -99,7 +99,7 @@ export const MainDashboard = styled.main`
 
   @media only screen and (min-width: 768px) {
     .containerImg__img {
-      width: 80px;
+      width: 70px;
     }
   }
 
@@ -109,7 +109,7 @@ export const MainDashboard = styled.main`
 
   @media only screen and (min-width: 768px) {
     .container__name {
-      font-size: 1rem;
+      font-size: 1.25rem;
     }
   }
 
