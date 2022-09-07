@@ -34,7 +34,7 @@ export const Aside = styled.aside`
     font-size: 0.75rem;
 
     .header__containerLogo__img {
-      width: 30px;
+      width: 100px;
     }
   }
 

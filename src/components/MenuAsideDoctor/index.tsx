@@ -19,11 +19,10 @@ const MenuAsideDoctor = ({ children }: IProps) => {
         <figure className="header__containerLogo">
           <img
             className="header__containerLogo__img"
-            src={require("../../assets/LogoSGS.png")}
+            src={require("../../assets/LogoNovo.png")}
             alt="logo"
           />
         </figure>
-        <h1 className="header__title">S.G.S</h1>
       </header>
       <main>{children}</main>
       <footer className="menu__side__footer">
