@@ -1,9 +1,15 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+/* import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import api from "../../services/api";
 import { LoginContext } from "../LoginProvider";
 
 interface PatientContextProvider {
-  HistoricPacient: () => void;
+  HistoricPacient: () => Promise<void>;
   historicUser: IUser;
 }
 
@@ -31,13 +37,20 @@ interface IUser {
 
 export const PatientContext = createContext({} as PatientContextProvider);
 const PatientProvider = ({ children }: IPatientProvider) => {
-  const [historicUser, setHistoricUser] = useState<IUser>({} as IUser);
+  /* const [historicUser, setHistoricUser] = useState<IUser>({} as IUser);
   const token = localStorage.getItem("@sgs:token");
   const { user } = useContext(LoginContext);
   const idUsuario = user.id;
 
-  const HistoricPacient = () => {
-    api
+  useEffect(() => {
+    const GetHistoric = async () => {
+      await HistoricPacient();
+    };
+    GetHistoric();
+  }, []);
+
+  const HistoricPacient = async () => {
+    await api
       .get(`/users/${idUsuario}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -48,6 +61,7 @@ const PatientProvider = ({ children }: IPatientProvider) => {
         console.log(err);
       });
   };
+  console.log(user);
 
   return (
     <PatientContext.Provider value={{ HistoricPacient, historicUser }}>
@@ -56,3 +70,4 @@ const PatientProvider = ({ children }: IPatientProvider) => {
   );
 };
 export default PatientProvider;
+ */

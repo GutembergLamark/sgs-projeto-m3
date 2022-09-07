@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import DashboardDoctorProvider from "./DashboardDoctorProvider";
 import LoginProvider from "./LoginProvider";
 import ModalProvider from "./ModalProvider";
-import PatientProvider from "./PatientProvider";
 import RegisterProvider from "./RegisterProvider";
 
 interface IProvider {
@@ -14,9 +13,7 @@ const Provider = ({ children }: IProvider) => {
     <LoginProvider>
       <RegisterProvider>
         <ModalProvider>
-          <PatientProvider>
-            <DashboardDoctorProvider>{children}</DashboardDoctorProvider>
-          </PatientProvider>    
+          <DashboardDoctorProvider>{children}</DashboardDoctorProvider>
         </ModalProvider>
       </RegisterProvider>
     </LoginProvider>
