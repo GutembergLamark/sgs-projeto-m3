@@ -7,7 +7,13 @@ export const Aside = styled.aside`
   }
 
   ul {
-    padding-left: 15px;
+    padding-left: 6px;
+
+    @media only screen and (min-width: 768px) {
+      & {
+        padding-left: 15px;
+      }
+    }
   }
 
   li {

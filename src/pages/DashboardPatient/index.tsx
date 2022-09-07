@@ -1,16 +1,17 @@
+import ContentPagePacient from "../../components/ContentPagePacient";
 import MenuAsideDoctor from "../../components/MenuAsideDoctor";
 import { MenuAsidePacient } from "../../components/MenuAsidePacient";
-import { DivGeneral, SectionCentral } from "./style";
+import { H1, Img } from "./style";
+/* import { DivGeneral, SectionCentral } from "./style"; */
 
 export const DashboardPacient = () => {
   return (
-    <DivGeneral>
-      <MenuAsideDoctor children={<MenuAsidePacient />} />
-      <SectionCentral>
-        <img src={require("../../assets/HomePacienteImg.gif")} alt="" />
-        <h1>S.G.S</h1>
-        <h1>Sistema Geral de Saúde</h1>
-      </SectionCentral>
-    </DivGeneral>
+    <ContentPagePacient>
+      <Img src={require("../../assets/imageDashboardPatient.gif")} alt="" />
+      <div>
+        <H1>S.G.S</H1>
+        <H1>Sistema Geral de Saúde</H1>
+      </div>
+    </ContentPagePacient>
   );
 };

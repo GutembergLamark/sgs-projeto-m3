@@ -44,16 +44,21 @@ interface ILoginContext {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface IPropsUser {
+  name: string;
+  description: string;
+}
+
 interface IUser {
   email: string;
   name: string;
   cpf: string;
   type: string;
   userId?: string;
-  alergias?: string[];
-  doencas?: string[];
-  exames?: string[];
-  remedios?: string[];
+  alergias?: IPropsUser[];
+  doencas?: IPropsUser[];
+  exames?: IPropsUser[];
+  remedios?: IPropsUser[];
   id?: number;
 }
 

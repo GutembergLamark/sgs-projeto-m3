@@ -6,9 +6,12 @@ import { useContext } from "react";
 import { ModalContext } from "../../../contexts/ModalProvider";
 import MenuAsideDoctor from "../../../components/MenuAsideDoctor";
 import { MenuAsidePacient } from "../../../components/MenuAsidePacient";
+import { useNavigate } from "react-router-dom";
 
 export const PageAllergiesPacient = () => {
   const { Allergy } = useContext(ModalContext);
+  const navigate = useNavigate();
+
   return (
     <ContentPagePacient>
       <DivImage className="div-image">
@@ -25,7 +28,13 @@ export const PageAllergiesPacient = () => {
           placeholderDescription={"Descreva a alergia"}
           sendButton={"Salvar Alergia"}
         />
-        <button>Hisórico de Alergia</button>
+        <button
+          onClick={() =>
+            navigate("/dashboard/patient/allergies/historic", { replace: true })
+          }
+        >
+          Hisórico de Alergia
+        </button>
       </DivButton>
     </ContentPagePacient>
   );

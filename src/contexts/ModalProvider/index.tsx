@@ -62,6 +62,7 @@ const ModalProvider = ({ children }: IModalProvider) => {
         }
       )
       .then((res) => {
+        console.log(res.data);
         setUser(res.data);
         toast.success("Alergia cadastrada  com sucesso");
       })
