@@ -45,6 +45,7 @@ export const MainDashboard = styled.main`
 
   .container__name {
     font-size: 14px;
+    color: var(--color-primary);
   }
 
   @media only screen and (min-width: 768px) {

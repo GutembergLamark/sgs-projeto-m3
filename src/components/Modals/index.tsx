@@ -41,7 +41,7 @@ const Modals = ({
   sendButton,
   modalSent,
 }: IModal) => {
-  const { errors, handleSubmit, register, isSubmitting } =
+  const { handleSubmit, register } =
     useContext(ModalContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -77,7 +77,7 @@ const Modals = ({
               <FormControl>
                 <FormLabel>{labelName}</FormLabel>
                 <Input
-                  /* ref={initialRef} */
+                  
                   placeholder={placeholderName}
                   {...register("name")}
                 />
@@ -103,7 +103,7 @@ const Modals = ({
                       transition: "0.3s",
                     }}
                     type="submit"
-                    /* onClick={onClose} */
+                    onClick={onClose}
                   >
                     {sendButton}
                   </Button>

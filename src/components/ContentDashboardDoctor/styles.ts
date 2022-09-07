@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+interface IImage {
+  Image: string;
+}
+
+export const Main = styled.main<IImage>`
   display: flex;
+
+  height: 100vh;
+  min-height: 100%;
 
   position: relative;
 
@@ -9,6 +16,14 @@ export const Main = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    height: 100vh;
+    min-height: 100%;
+
+    ${(Image: IImage) => console.log(Image)}
+    background: url(${(Image: IImage) => Image.Image});
+    background-repeat: no-repeat;
+    background-size: cover;
 
     width: 70%;
 
