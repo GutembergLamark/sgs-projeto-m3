@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { ReactNode, useContext } from "react";
 import { GiExitDoor } from "react-icons/gi";
 import { DashboardDoctorContext } from "../../contexts/DashboardDoctorProvider";
 import { LoginContext } from "../../contexts/LoginProvider";
 import { Aside } from "./styles";
 import { useNavigate } from "react-router-dom";
 
-const MenuAsideDoctor = () => {
+interface IProps {
+  children?: ReactNode;
+}
+
+const MenuAsideDoctor = ({ children }: IProps) => {
   const { logout } = useContext(DashboardDoctorContext);
   const { user } = useContext(LoginContext);
 
@@ -21,6 +25,7 @@ const MenuAsideDoctor = () => {
         </figure>
         <h1 className="header__title">S.G.S</h1>
       </header>
+      <main>{children}</main>
       <footer className="menu__side__footer">
         <h2 className="footer__name">{user.name}</h2>
         <button className="footer__button" onClick={() => logout()}>

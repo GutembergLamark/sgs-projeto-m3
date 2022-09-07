@@ -1,34 +1,69 @@
-import Image2 from "../../assets/FundoClaro.png";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { boolean } from "yup";
 import { Aside } from "./style";
-import { GiExitDoor } from "react-icons/gi";
-import { useContext } from "react";
-import { LoginContext } from "../../contexts/LoginProvider";
+
+interface IMenu {
+  allergies: boolean;
+}
 
 export const MenuAsidePacient = () => {
-  const { user } = useContext(LoginContext);
+  const Navigate = useNavigate();
+
+  // const { allergies, setAllergies } = useState<boolean>(false);
+  // const { disease, setDisease } = useState(false);
+  // const { exams, setExams } = useState(false);
+  // const { medicines, setMedicines } = useState<boolean>(false);
+
   return (
-    <Aside Image={Image2}>
-      <div className="div-logo">
-        <img
-          src={require("../../assets/LogoSGS.png")}
-          alt=""
-          className="logo"
-        />
-        <h2>S.G.S</h2>
-      </div>
-      <div className="div-central">
-        <p className="p-alergias">Alergias</p>
-        <p>Doenças</p>
-        <p>Exames</p>
-        <p>Remédios</p>
-      </div>
-      <div className="div-exit">
-        <span>{user.name}</span>
-        <button className="footer__button">
-          <GiExitDoor />
-          Sair
-        </button>
-      </div>
+    <Aside>
+      <ul>
+        <li
+          className="p-alergias"
+          onClick={
+            () => Navigate("/dashboard/patient/allergies")
+            // setAllergies(true)
+            // setDisease(false)
+            // setExams(false)
+            // setMedicines(false)
+          }
+        >
+          Alergias
+        </li>
+        <li
+          onClick={
+            () => Navigate("/dashboard/patient/disease")
+            //  setAllergies(false)
+            //  setDisease(true)
+            //  setExams(false)
+            //  setMedicines(false)
+          }
+        >
+          Doenças
+        </li>
+        <li
+          onClick={
+            () => Navigate("/dashboard/patient/exams")
+            //  setAllergies(false)
+            //  setDisease(false)
+            //  setExams(true)
+            //  setMedicines(false)
+          }
+        >
+          Exames
+        </li>
+        <li
+          onClick={
+            () => Navigate("/dashboard/patient/medicines")
+            //  setAllergies(false)
+            //  setDisease(false)
+            //  setExams(false)
+            //  setMedicines(true)
+          }
+        >
+          Remédios
+        </li>
+      </ul>
     </Aside>
   );
 };
