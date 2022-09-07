@@ -24,7 +24,7 @@ const MenuAsideDoctor = ({ children }: IProps) => {
         </figure>
         <h1 className="header__title">S.G.S</h1>
       </header>
-      {children}
+      <main>{children}</main>
       <footer className="menu__side__footer">
         <h2 className="footer__name">Olá, {user.name}</h2>
         <button className="footer__button" onClick={() => logout()}>

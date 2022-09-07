@@ -56,6 +56,11 @@ export const Aside = styled.aside`
     }
   }
 
+  main {
+    height: 100%;
+    width: 100%;
+  }
+
   .menu__side__footer {
     background-color: var(--color-primary);
 

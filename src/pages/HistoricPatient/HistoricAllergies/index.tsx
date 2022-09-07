@@ -3,6 +3,7 @@ import { DivGeneral, SectionGeneral } from "../StyleHistoric/style";
 import Image from "../../../assets/Fundo.png";
 import { useContext, useEffect } from "react";
 import { PatientContext } from "../../../contexts/PatientProvider";
+import MenuAsideDoctor from "../../../components/MenuAsideDoctor";
 
 export const HistoryAllergies = () => {
   const { historicUser, HistoricPacient } = useContext(PatientContext);
@@ -13,7 +14,7 @@ export const HistoryAllergies = () => {
 
   return (
     <DivGeneral>
-      <MenuAsidePacient />
+      <MenuAsideDoctor children={<MenuAsidePacient />} />
       <SectionGeneral Image={Image}>
         <div>
           <h1>Alergias</h1>

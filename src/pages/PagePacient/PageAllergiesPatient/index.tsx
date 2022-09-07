@@ -4,9 +4,11 @@ import Modals from "../../../components/Modals";
 import ContentPagePacient from "../../../components/ContentPagePacient";
 import { useContext } from "react";
 import { ModalContext } from "../../../contexts/ModalProvider";
+import MenuAsideDoctor from "../../../components/MenuAsideDoctor";
+import { MenuAsidePacient } from "../../../components/MenuAsidePacient";
 
 export const PageAllergiesPacient = () => {
-  const {Allergy} = useContext(ModalContext)
+  const { Allergy } = useContext(ModalContext);
   return (
     <ContentPagePacient>
       <DivImage className="div-image">
