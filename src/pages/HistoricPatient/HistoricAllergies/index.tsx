@@ -1,29 +1,29 @@
-import { MenuAsidePacient } from "../../../components/MenuAsidePacient";
-import { DivGeneral, SectionGeneral } from "../StyleHistoric/style";
-import Image from "../../../assets/Fundo.png";
+import { DivGeneral, DivUl, H1 } from "../StyleHistoric/style";
 import { useContext, useEffect } from "react";
 import { PatientContext } from "../../../contexts/PatientProvider";
-import MenuAsideDoctor from "../../../components/MenuAsideDoctor";
+import ContentPagePacient from "../../../components/ContentPagePacient";
+import { LoginContext } from "../../../contexts/LoginProvider";
 
 export const HistoryAllergies = () => {
   const { historicUser, HistoricPacient } = useContext(PatientContext);
+  const { user } = useContext(LoginContext);
 
   useEffect(() => {
     HistoricPacient();
-  }, []);
+    console.log(user);
+  }, [user]);
 
   return (
-    <DivGeneral>
-      <MenuAsideDoctor children={<MenuAsidePacient />} />
-      <SectionGeneral Image={Image}>
+    <ContentPagePacient>
+      <DivGeneral>
         <div>
-          <h1>Alergias</h1>
+          <H1>Alergias</H1>
         </div>
-        <div className="div-ul">
+        <DivUl className="div-ul">
           <ul>
-            {historicUser.alergias &&
-              historicUser.alergias.map((elem) => (
-                <li key={elem.name}>
+            {user.alergias &&
+              user.alergias.map((elem, index) => (
+                <li key={index}>
                   <p className="p-history">{elem.name}</p>
                   <details>
                     <summary>Descrição:</summary>
@@ -32,8 +32,8 @@ export const HistoryAllergies = () => {
                 </li>
               ))}
           </ul>
-        </div>
-      </SectionGeneral>
-    </DivGeneral>
+        </DivUl>
+      </DivGeneral>
+    </ContentPagePacient>
   );
 };

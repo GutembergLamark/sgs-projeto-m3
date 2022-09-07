@@ -27,7 +27,7 @@ export const Aside = styled.aside`
     align-items: center;
     justify-content: center;
 
-    padding: 0.625rem;
+    padding: 30px 0.625rem;
 
     background-color: var(--color-primary);
 
@@ -44,14 +44,9 @@ export const Aside = styled.aside`
     .menu__side__header {
       flex-direction: row;
       gap: 0.625rem;
-      padding: 30px 0.625rem;
 
       .header__title {
         font-size: 20px;
-      }
-
-      .header__containerLogo__img {
-        width: 40px;
       }
     }
   }
@@ -64,7 +59,7 @@ export const Aside = styled.aside`
   .menu__side__footer {
     background-color: var(--color-primary);
 
-    padding: 0.625rem;
+    padding: 25px 0.625rem;
 
     text-align: center;
 
@@ -97,7 +92,6 @@ export const Aside = styled.aside`
   @media only screen and (min-width: 586px) {
     .menu__side__footer {
       align-items: center;
-      padding: 25px 0.625rem;
 
       button {
         width: 156px;

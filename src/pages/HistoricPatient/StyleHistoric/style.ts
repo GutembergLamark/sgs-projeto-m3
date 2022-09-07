@@ -1,36 +1,26 @@
 import styled from "styled-components";
 
-interface IProps {
-  Image: string;
-}
-
 export const DivGeneral = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  position: fixed;
-`;
-
-export const SectionGeneral = styled.section`
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
-  background: url(${(Image: IProps) => Image.Image});
-  h1 {
-    color: #0b8899;
-    border-bottom: 2px solid #0b8899;
-  }
-  .div-ul {
-    width: 80%;
-    max-width: 950px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  width: 100%;
+`;
+
+export const H1 = styled.h1`
+  color: #0b8899;
+  border-bottom: 2px solid #0b8899;
+`;
+
+export const DivUl = styled.div`
+  width: 80%;
+  max-width: 950px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   ul {
     width: 100%;
     max-height: 500px;
@@ -49,6 +39,7 @@ export const SectionGeneral = styled.section`
       border-radius: 10px;
     }
   }
+
   li {
     width: 95%;
     border: none;

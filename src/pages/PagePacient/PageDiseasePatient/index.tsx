@@ -4,10 +4,12 @@ import Modals from "../../../components/Modals";
 import ContentPagePacient from "../../../components/ContentPagePacient";
 import { ModalContext } from "../../../contexts/ModalProvider";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const PageDiseasePacient = () => {
+  const { Illnesses } = useContext(ModalContext);
+  const navigate = useNavigate();
 
-  const {Illnesses} = useContext(ModalContext)
   return (
     <ContentPagePacient>
       <DivImage className="div-image">
@@ -24,7 +26,13 @@ export const PageDiseasePacient = () => {
           placeholderDescription={"Descreva a doença"}
           sendButton={"Salvar Doença"}
         />
-        <button>Hisórico de Doenças</button>
+        <button
+          onClick={() =>
+            navigate("/dashboard/patient/disease/historic", { replace: true })
+          }
+        >
+          Hisórico de Doenças
+        </button>
       </DivButton>
     </ContentPagePacient>
   );

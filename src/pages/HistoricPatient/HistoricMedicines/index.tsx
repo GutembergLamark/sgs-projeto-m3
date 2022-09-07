@@ -1,9 +1,7 @@
-import { MenuAsidePacient } from "../../../components/MenuAsidePacient";
-import { DivGeneral, SectionGeneral } from "../StyleHistoric/style";
-import Image from "../../../assets/Fundo.png";
+import { DivGeneral, DivUl, H1 } from "../StyleHistoric/style";
 import { useContext, useEffect } from "react";
 import { PatientContext } from "../../../contexts/PatientProvider";
-import MenuAsideDoctor from "../../../components/MenuAsideDoctor";
+import ContentPagePacient from "../../../components/ContentPagePacient";
 
 export const HistoryMedicines = () => {
   const { historicUser, HistoricPacient } = useContext(PatientContext);
@@ -13,17 +11,16 @@ export const HistoryMedicines = () => {
   }, []);
 
   return (
-    <DivGeneral>
-      <MenuAsideDoctor children={<MenuAsidePacient />} />
-      <SectionGeneral Image={Image}>
+    <ContentPagePacient>
+      <DivGeneral>
         <div>
-          <h1>Remédios</h1>
+          <H1>Remédios</H1>
         </div>
-        <div className="div-ul">
+        <DivUl className="div-ul">
           <ul>
             {historicUser.remedios &&
               historicUser.remedios.map((elem) => (
-                <li>
+                <li key={elem.name}>
                   <p className="p-history">{elem.name}</p>
                   <details>
                     <summary>Descrição:</summary>
@@ -32,8 +29,8 @@ export const HistoryMedicines = () => {
                 </li>
               ))}
           </ul>
-        </div>
-      </SectionGeneral>
-    </DivGeneral>
+        </DivUl>
+      </DivGeneral>
+    </ContentPagePacient>
   );
 };

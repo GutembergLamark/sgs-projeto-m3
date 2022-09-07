@@ -12,7 +12,9 @@ const ContentPagePacient = ({ children }: IDashboardProps) => {
   return (
     <DivGeneral>
       <MenuAsideDoctor children={<MenuAsidePacient />} />
-      <SectionGeneral Image={Image}>{children}</SectionGeneral>
+      <SectionGeneral className="section__patient" Image={Image}>
+        {children}
+      </SectionGeneral>
     </DivGeneral>
   );
 };

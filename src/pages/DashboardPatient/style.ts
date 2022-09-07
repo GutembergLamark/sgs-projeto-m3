@@ -1,9 +1,38 @@
 import styled from "styled-components";
 
-export const DivGeneral = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
+export const Img = styled.img`
+  width: 200px;
+
+  @media only screen and (min-width: 586px) {
+    & {
+      width: 300px;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    & {
+      width: 400px;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    & {
+      width: 40%;
+    }
+  }
+`;
+
+export const H1 = styled.h1`
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgba(7, 126, 142, 1);
+  text-align: center;
+
+  @media only screen and (min-width: 768px) {
+    & {
+      font-size: 40px;
+    }
+  }
 `;
 
 export const Aside = styled.aside`
