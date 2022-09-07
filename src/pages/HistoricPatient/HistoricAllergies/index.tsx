@@ -1,17 +1,34 @@
 import { DivGeneral, DivUl, H1 } from "../StyleHistoric/style";
 import { useContext, useEffect } from "react";
-import { PatientContext } from "../../../contexts/PatientProvider";
 import ContentPagePacient from "../../../components/ContentPagePacient";
 import { LoginContext } from "../../../contexts/LoginProvider";
+import api from "../../../services/api";
+import { ModalContext } from "../../../contexts/ModalProvider";
+import { toast } from "react-toastify";
 
 export const HistoryAllergies = () => {
-  const { historicUser, HistoricPacient } = useContext(PatientContext);
-  const { user } = useContext(LoginContext);
+  const { user, setUser } = useContext(LoginContext);
+  const { allergys } = useContext(ModalContext);
+  const token = localStorage.getItem("@sgs:token");
+  const idUsuario = user.id;
 
   useEffect(() => {
-    HistoricPacient();
-    console.log(user);
-  }, [user]);
+    api
+      .patch(
+        `/users/${idUsuario}`,
+        { alergias: allergys },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        setUser(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [allergys]);
 
   return (
     <ContentPagePacient>

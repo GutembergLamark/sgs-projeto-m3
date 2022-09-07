@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import {
   useForm,
   UseFormRegister,
@@ -41,10 +47,6 @@ const ModalProvider = ({ children }: IModalProvider) => {
     formState: { errors, isSubmitting },
   } = useForm<IRegister>();
 
-  const { user, setUser } = useContext(LoginContext);
-  const token = localStorage.getItem("@sgs:token");
-  const idUsuario = user.id;
-
   const [allergys, setAllergy] = useState<IRegister[]>([]);
   const [illnesses, setIIllnesses] = useState<IRegister[]>([]);
   const [exams, setExams] = useState<IRegister[]>([]);
@@ -52,96 +54,22 @@ const ModalProvider = ({ children }: IModalProvider) => {
 
   const Allergy = (data: IRegister) => {
     setAllergy([...allergys, data]);
-
-    api
-      .patch(
-        `/users/${idUsuario}`,
-        { alergias: allergys },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then((res) => {
-        console.log(res.data);
-        setUser(res.data);
-        toast.success("Alergia cadastrada  com sucesso");
-      })
-      .catch((err) => {
-        toast.error(
-          "Cadastro não realizado. Por favor, tente novamente mais tarde !"
-        );
-        console.log(err);
-      });
+    toast.success("Alergia cadastrada com sucesso!");
   };
 
   const Illnesses = (data: IRegister) => {
     setIIllnesses([...illnesses, data]);
-
-    api
-      .patch(
-        `/users/${idUsuario}`,
-        { doencas: illnesses },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then((res) => {
-        setUser(res.data);
-        toast.success("Doença cadastrada  com sucesso");
-        console.log(res.data);
-      })
-      .catch((err) => {
-        toast.error("Cadastro não realizado. Por favor, tente novamente!");
-        console.log(err);
-      });
+    toast.success("Doença cadastrada com sucesso!");
   };
 
   const Exams = (data: IRegister) => {
     setExams([...exams, data]);
-
-    api
-      .patch(
-        `/users/${idUsuario}`,
-        { exames: exams },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then((res) => {
-        setUser(res.data);
-        toast.success("Exame cadastrado  com sucesso");
-        console.log(res.data);
-      })
-      .catch((err) => {
-        toast.error(
-          "Cadastro não realizado. Por favor, tente novamente mais tarde !"
-        );
-        console.log(err);
-      });
+    toast.success("Exame cadastrado com sucesso!");
   };
 
   const Medicines = (data: IRegister) => {
     setMedicines([...medicines, data]);
-
-    api
-      .patch(
-        `/users/${idUsuario}`,
-        { remedios: medicines },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then((res) => {
-        setUser(res.data);
-        toast.success("Remedio cadastrado  com sucesso");
-        console.log(res.data);
-      })
-      .catch((err) => {
-        toast.error(
-          "Cadastro não realizado. Por favor, tente novamente mais tarde !"
-        );
-        console.log(err);
-      });
+    toast.success("Remédio cadastrado com sucesso!");
   };
 
   return (

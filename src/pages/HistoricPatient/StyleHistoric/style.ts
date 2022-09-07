@@ -24,6 +24,11 @@ export const DivUl = styled.div`
   ul {
     width: 100%;
     max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
     overflow-x: auto;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     padding: 1.5rem;
@@ -42,11 +47,10 @@ export const DivUl = styled.div`
 
   li {
     width: 95%;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 10px;
     background-color: rgba(11, 136, 153, 1);
     color: white;
-    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     padding: 1rem;

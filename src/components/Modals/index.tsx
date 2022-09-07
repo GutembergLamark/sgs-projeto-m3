@@ -102,8 +102,8 @@ const Modals = ({
                       bgColor: "#077e8ed3",
                       transition: "0.3s",
                     }}
-                    type={"submit"}
-                    onClick={onClose}
+                    type="submit"
+                    /* onClick={onClose} */
                   >
                     {sendButton}
                   </Button>
