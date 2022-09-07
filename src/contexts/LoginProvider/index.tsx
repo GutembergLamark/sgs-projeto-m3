@@ -88,7 +88,7 @@ const LoginProvider = ({ children }: ILoginProvider) => {
         toast.success("Login realizado com sucesso");
         res.data.user.type === "paciente"
           ? navigate("/dashboard/patient", { replace: true })
-          : navigate("dashboar/doctor", { replace: true });
+          : navigate("dashboard/doctor", { replace: true });
       })
       .catch((err) => {
         toast.error("Email ou senha incorretos ou não cadastrados");

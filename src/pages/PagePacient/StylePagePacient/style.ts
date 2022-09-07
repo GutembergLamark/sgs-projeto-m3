@@ -7,15 +7,19 @@ export const DivImage = styled.div`
   justify-content: center;
 
   img {
-    width: 80%;
+    width: 70%;
     height: 80%;
     max-width: 392px;
     border-radius: 50%;
 
-    @media only screen and (min-width: 1024px) {
-      width: 400px;
+    @media only screen and (min-width: 768px) {
+      width: 300px;
       height: 400px;
       border-radius: 50%;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      width: 400px;
     }
   }
 `;
