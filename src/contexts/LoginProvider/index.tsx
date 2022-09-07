@@ -21,18 +21,6 @@ interface IUserSignIn {
   password: string;
 }
 
-interface IPaciente {
-  email: string;
-  name: string;
-  cpf: string;
-  type: string;
-  /* alergias?: string[];
-  doencas?: string[];
-  exames?: string[];
-  remedios?: string[]; */
-  id: string;
-}
-
 interface ILoginContext {
   handleSubmit: UseFormHandleSubmit<IUserSignIn>;
   register: UseFormRegister<IUserSignIn>;
