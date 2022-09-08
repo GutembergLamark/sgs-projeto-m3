@@ -21,7 +21,6 @@ export const HistoryDisease = () => {
         }
       )
       .then((res) => {
-        console.log(res.data);
         setUser(res.data);
       })
       .catch((err) => {

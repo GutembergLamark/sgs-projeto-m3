@@ -22,7 +22,6 @@ export const HistoryAllergies = () => {
         }
       )
       .then((res) => {
-        console.log(res.data);
         setUser(res.data);
       })
       .catch((err) => {

@@ -25,13 +25,14 @@ export const PageExamsPacient = () => {
           description={"Data"}
           placeholderDescription={"Informe a data do exame"}
           sendButton={"Salvar Exame"}
+          typeExams={"date"}
         />
         <button
           onClick={() =>
             navigate("/dashboard/patient/exams/historic", { replace: true })
           }
         >
-          Hisórico de Exames
+          Histórico de Exames
         </button>
       </DivButton>
     </ContentPagePacient>
