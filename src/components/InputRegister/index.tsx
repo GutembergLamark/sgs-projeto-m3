@@ -2,27 +2,27 @@ import { Div, Error } from "./styles";
 import { BiErrorCircle } from "react-icons/bi";
 import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { FieldErrorsImpl, UseFormRegister } from "react-hook-form";
+import { FieldError, UseFormRegister } from "react-hook-form";
 
 interface IUser {
-  name: string;
-  cpf: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  type: string;
+  name?: string;
+  cpf?: string;
+  email?: string;
+  password?: string;
+  confirmPassword?: string;
+  type?: string;
 }
 
 interface IInuput {
-  register: UseFormRegister<IUser>;
-  id: string;
+  register: UseFormRegister<IUser> | any;
+  id: "type" | "password" | "email" | "name" | "cpf" | "confirmPassword";
   label: string;
-  error: FieldErrorsImpl<IUser> | undefined;
+  error: FieldError | undefined;
   placeholder: string;
   type: string;
 }
 
-const Input = ({ register, id, label, error, placeholder, type }: any) => {
+const Input = ({ register, id, label, error, placeholder, type }: IInuput) => {
   const [visibleConfirm, setVisibleConfirm] = useState<boolean>(false);
   const [visible, setVisible] = useState<boolean>(false);
   return (

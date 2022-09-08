@@ -9,11 +9,12 @@ import {
   ModalCloseButton,
   Button,
   FormControl,
-  FormLabel,
   Input,
+  FormLabel,
   useDisclosure,
 } from "@chakra-ui/react";
 import { ModalContext } from "../../contexts/ModalProvider";
+//import Input from "../InputRegister";
 
 interface IRegister {
   description?: string;
@@ -29,6 +30,7 @@ interface IModal {
   nameButton: string;
   sendButton: string;
   modalSent: (data: IRegister) => void;
+  typeExams?: string;
 }
 
 const Modals = ({
@@ -40,9 +42,9 @@ const Modals = ({
   nameButton,
   sendButton,
   modalSent,
+  typeExams,
 }: IModal) => {
-  const { handleSubmit, register } =
-    useContext(ModalContext);
+  const { handleSubmit, register } = useContext(ModalContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -77,14 +79,16 @@ const Modals = ({
               <FormControl>
                 <FormLabel>{labelName}</FormLabel>
                 <Input
-                  
                   placeholder={placeholderName}
                   {...register("name")}
+                  required
                 />
                 <FormLabel marginTop={"15px"}>{description}</FormLabel>
                 <Input
+                  type={typeExams}
                   placeholder={placeholderDescription}
                   {...register("description")}
+                  required
                 />
                 <ModalFooter
                   display={"flex"}

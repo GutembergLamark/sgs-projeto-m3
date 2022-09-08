@@ -3,9 +3,6 @@ import { LoginContaine, Footer, Header } from "./style";
 import FormLogin from "../../components/FormLogin";
 
 const Login = () => {
-
-  
-
   return (
     <LoginContaine>
       <Header>
