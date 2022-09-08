@@ -81,7 +81,6 @@ const LoginProvider = ({ children }: ILoginProvider) => {
           })
           .catch((error) => {
             console.log(error);
-            toast.error("Ops, algo deu errado :(");
           });
       }
       setLoading(false);
