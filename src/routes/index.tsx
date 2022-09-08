@@ -28,16 +28,16 @@ const Router = () => {
         <Route path="/dashboard/patient" element={<DashboardPacient />} />
       </Route>
       <Route
-        path="/dashboard/patient/:allergies"
+        path="/dashboard/patient/allergie/:allergies"
         element={<PageAllergiesPacient />}
       />
       <Route
-        path="/dashboard/patient/:disease"
+        path="/dashboard/patient/disease/:diseases"
         element={<PageDiseasePacient />}
       />
-      <Route path="/dashboard/patient/:exams" element={<PageExamsPacient />} />
+      <Route path="/dashboard/patient/exam/:exams" element={<PageExamsPacient />} />
       <Route
-        path="/dashboard/patient/:medicines"
+        path="/dashboard/patient/medicine/:medicines"
         element={<PageMedicinesPacient />}
       />
       <Route

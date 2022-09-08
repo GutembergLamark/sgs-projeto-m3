@@ -4,8 +4,6 @@ import Modals from "../../../components/Modals";
 import ContentPagePacient from "../../../components/ContentPagePacient";
 import { useContext } from "react";
 import { ModalContext } from "../../../contexts/ModalProvider";
-import MenuAsideDoctor from "../../../components/MenuAsideDoctor";
-import { MenuAsidePacient } from "../../../components/MenuAsidePacient";
 import { useNavigate } from "react-router-dom";
 
 export const PageAllergiesPacient = () => {
@@ -33,7 +31,7 @@ export const PageAllergiesPacient = () => {
             navigate("/dashboard/patient/allergies/historic", { replace: true })
           }
         >
-          Hisórico de Alergia
+          Histórico de Alergia
         </button>
       </DivButton>
     </ContentPagePacient>
