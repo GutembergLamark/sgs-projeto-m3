@@ -1,58 +1,62 @@
 import styled from "styled-components";
 
 interface IProps {
-  route: string;
+  allergies: string;
+  diseases: string;
+  exams: string;
+  medicines: string;
 }
 
 export const Aside = styled.aside`
   .p__alergias {
     color: ${(data: IProps) =>
-      data.route === "allergies" && "rgba(142, 7, 7, 1)"};
+      data.allergies !== undefined && "rgba(142, 7, 7, 1)"};
     border-bottom: 2px solid transparent;
   }
 
   .p__alergias:hover {
     cursor: pointer;
     border-bottom: 2px solid
-      ${(data: IProps) => data.route === "allergies" && "rgba(142, 7, 7, 1)"};
+      ${(data: IProps) => data.allergies !== undefined && "rgba(142, 7, 7, 1)"};
     transition: 0.3s;
   }
 
   .p__doencas {
     color: ${(data: IProps) =>
-      data.route === "disease" && "rgba(142, 7, 7, 1)"};
+      data.diseases !== undefined && "rgba(142, 7, 7, 1)"};
     border-bottom: 2px solid transparent;
   }
 
   .p__doencas:hover {
     cursor: pointer;
     border-bottom: 2px solid
-      ${(data: IProps) => data.route === "disease" && "rgba(142, 7, 7, 1)"};
+      ${(data: IProps) => data.diseases !== undefined && "rgba(142, 7, 7, 1)"};
     transition: 0.3s;
   }
 
   .p__exames {
-    color: ${(data: IProps) => data.route === "exams" && "rgba(142, 7, 7, 1)"};
+    color: ${(data: IProps) =>
+      data.exams !== undefined && "rgba(142, 7, 7, 1)"};
     border-bottom: 2px solid transparent;
   }
 
   .p__exames:hover {
     cursor: pointer;
     border-bottom: 2px solid
-      ${(data: IProps) => data.route === "exams" && "rgba(142, 7, 7, 1)"};
+      ${(data: IProps) => data.exams !== undefined && "rgba(142, 7, 7, 1)"};
     transition: 0.3s;
   }
 
   .p__remedios {
     color: ${(data: IProps) =>
-      data.route === "medicines" && "rgba(142, 7, 7, 1)"};
+      data.medicines !== undefined && "rgba(142, 7, 7, 1)"};
     border-bottom: 2px solid transparent;
   }
 
   .p__remedios:hover {
     cursor: pointer;
     border-bottom: 2px solid
-      ${(data: IProps) => data.route === "medicines" && "rgba(142, 7, 7, 1)"};
+      ${(data: IProps) => data.medicines !== undefined && "rgba(142, 7, 7, 1)"};
     transition: 0.3s;
   }
 

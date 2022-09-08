@@ -32,7 +32,7 @@ export const PageExamsPacient = () => {
             navigate("/dashboard/patient/exams/historic", { replace: true })
           }
         >
-          Hisórico de Exames
+          Histórico de Exames
         </button>
       </DivButton>
     </ContentPagePacient>
