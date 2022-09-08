@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
-  width: 320px;
+  width: 260px;
   height: 320px;
   background: #fffbfb;
   border-radius: 10px;
@@ -36,6 +36,7 @@ export const Form = styled.form`
   }
 
   @media (min-width: 350px) {
+    width: 320px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
       4px 0px 13px rgba(0, 0, 0, 0.25);
   }
