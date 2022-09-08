@@ -4,15 +4,20 @@ import { Aside } from "./style";
 export const MenuAsidePacient = () => {
   const Navigate = useNavigate();
 
-  const { allergies } = useParams();
-  
+  const { allergies, diseases, exams, medicines } = useParams();
+
   return (
-    <Aside route={allergies}>
+    <Aside
+      allergies={allergies}
+      diseases={diseases}
+      exams={exams}
+      medicines={medicines}
+    >
       <ul>
         <li
           className="p__alergias"
           onClick={() => {
-            Navigate("/dashboard/patient/allergies");
+            Navigate("/dashboard/patient/allergie/:allergies");
           }}
         >
           Alergias
@@ -20,7 +25,7 @@ export const MenuAsidePacient = () => {
         <li
           className="p__doencas"
           onClick={() => {
-            Navigate("/dashboard/patient/disease");
+            Navigate("/dashboard/patient/disease/:diseases");
           }}
         >
           Doenças
@@ -28,7 +33,7 @@ export const MenuAsidePacient = () => {
         <li
           className="p__exames"
           onClick={() => {
-            Navigate("/dashboard/patient/exams");
+            Navigate("/dashboard/patient/exam/:exams");
           }}
         >
           Exames
@@ -36,7 +41,7 @@ export const MenuAsidePacient = () => {
         <li
           className="p__remedios"
           onClick={() => {
-            Navigate("/dashboard/patient/medicines");
+            Navigate("/dashboard/patient/medicine/:medicines");
           }}
         >
           Remédios

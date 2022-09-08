@@ -47,15 +47,12 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
   const navigate = useNavigate();
 
   const registerUser = (data: IUser) => {
-    console.log(data);
     delete data.confirmPassword;
-    console.log(api);
     api
       .post("register", data)
       .then((res) => {
         navigate("/");
         toast.success("Cadastro realizado com sucesso");
-        console.log(res);
       })
       .catch((err) => {
         toast.error("Cadastro não realizado. Email já cadastrado");
