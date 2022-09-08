@@ -10,19 +10,18 @@ export const LoginContaine = styled.div`
 
   main {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 100%;
   }
 
   img {
     width: 30%;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     main {
-      min-height: 100vh;
       flex-direction: column;
       justify-content: center;
     }
