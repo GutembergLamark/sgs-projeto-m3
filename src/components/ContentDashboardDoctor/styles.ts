@@ -20,7 +20,6 @@ export const Main = styled.main<IImage>`
     height: 100vh;
     min-height: 100%;
 
-    ${(Image: IImage) => console.log(Image)}
     background: url(${(Image: IImage) => Image.Image});
     background-repeat: no-repeat;
     background-size: cover;

@@ -31,7 +31,7 @@ export const PageDiseasePacient = () => {
             navigate("/dashboard/patient/disease/historic", { replace: true })
           }
         >
-          Hisórico de Doenças
+          Histórico de Doenças
         </button>
       </DivButton>
     </ContentPagePacient>
