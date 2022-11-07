@@ -24,6 +24,8 @@ export const PageExamsPacient = () => {
           placeholderName={"Insira a exame"}
           description={"Data"}
           placeholderDescription={"Informe a data do exame"}
+          link={"Link"}
+          placeholderLink={"Informe o link do exame"}
           sendButton={"Salvar Exame"}
           typeExams={"date"}
         />
