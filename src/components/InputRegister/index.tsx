@@ -6,16 +6,17 @@ import { FieldError, UseFormRegister } from "react-hook-form";
 
 interface IUser {
   name?: string;
+  birth_date?: Date;
   cpf?: string;
   email?: string;
   password?: string;
   confirmPassword?: string;
-  type?: string;
+  isDoctor?: boolean | string;
 }
 
 interface IInuput {
   register: UseFormRegister<IUser> | any;
-  id: "type" | "password" | "email" | "name" | "cpf" | "confirmPassword";
+  id: "isDoctor" |  "birth_date" | "password" | "email" | "name" | "cpf" | "confirmPassword";
   label: string;
   error: FieldError | undefined;
   placeholder: string;

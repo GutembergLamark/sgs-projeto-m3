@@ -1,6 +1,6 @@
 import api from "../../services/api";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { createContext, ReactNode } from "react";
+import { createContext, ReactNode, useState } from "react";
 import {
   FieldErrorsImpl,
   useForm,
@@ -24,11 +24,12 @@ interface IRegisterContext {
 
 interface IUser {
   name: string;
+  birth_date: Date;
   cpf: string;
   email: string;
   password: string;
   confirmPassword?: string;
-  type: string;
+  isDoctor: boolean | string;
 }
 
 export const RegisterContext = createContext<IRegisterContext>(
@@ -46,10 +47,21 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
 
   const navigate = useNavigate();
 
+  
   const registerUser = (data: IUser) => {
+    let all = "patient";
+    if(data.isDoctor === "enfermeiro"){
+       all = "doctor" ;
+       data.isDoctor = true;
+    }
+    else{
+      all = "patient";
+      data.isDoctor = false;
+    }
+    console.log(data)
     delete data.confirmPassword;
     api
-      .post("register", data)
+      .post(all, data)
       .then((res) => {
         navigate("/");
         toast.success("Cadastro realizado com sucesso");

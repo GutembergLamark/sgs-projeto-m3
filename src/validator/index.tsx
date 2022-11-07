@@ -3,6 +3,7 @@ import * as yup from "yup";
 export const formSchema = yup.object().shape({
   name: yup.string().required("Nome obrigatório"),
   cpf: yup.string().required("CPF obrigatório"),
+  birth_date: yup.string().required("Data de nacimento obrigatória"),
   email: yup.string().required("Email obrigatório").email("Email inválido"),
   password: yup
     .string()

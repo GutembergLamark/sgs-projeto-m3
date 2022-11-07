@@ -22,6 +22,14 @@ const FormRegister = () => {
             placeholder={"Digite seu Nome"}
             type={"text"}
           />
+           <Input
+            label={"data de nascimento"}
+            register={register}
+            id={"birth_date"}
+            error={errors?.birth_date}
+            placeholder={"Digite sua data de nascimento"}
+            type={"date"}
+          />
           <Input
             label={"CPF"}
             register={register}
@@ -55,7 +63,7 @@ const FormRegister = () => {
             type={"password"}
           />
           <label>Tipo</label>
-          <select {...register("type")}>
+          <select {...register("isDoctor")}>
             <option value="paciente">Paciente</option>
             <option value="enfermeiro">Enfermeiro</option>
           </select>
