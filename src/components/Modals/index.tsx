@@ -13,13 +13,7 @@ import {
   FormLabel,
   useDisclosure,
 } from "@chakra-ui/react";
-import { ModalContext } from "../../contexts/ModalProvider";
-//import Input from "../InputRegister";
-
-interface IRegister {
-  description?: string;
-  name?: string;
-}
+import { IRegister, ModalContext } from "../../contexts/ModalProvider";
 
 interface IModal {
   title: string;
@@ -31,6 +25,8 @@ interface IModal {
   sendButton: string;
   modalSent: (data: IRegister) => void;
   typeExams?: string;
+  link?: string;
+  placeholderLink?: string;
 }
 
 const Modals = ({
@@ -39,6 +35,8 @@ const Modals = ({
   placeholderName,
   description,
   placeholderDescription,
+  link,
+  placeholderLink,
   nameButton,
   sendButton,
   modalSent,
@@ -85,11 +83,23 @@ const Modals = ({
                 />
                 <FormLabel marginTop={"15px"}>{description}</FormLabel>
                 <Input
-                  type={typeExams}
+                  type={typeExams ? typeExams : "text"}
                   placeholder={placeholderDescription}
                   {...register("description")}
                   required
                 />
+                {link ? (
+                  <>
+                    <FormLabel marginTop={"15px"}>{link}</FormLabel>
+                    <Input
+                      placeholder={placeholderLink}
+                      {...register("results_exams")}
+                      required
+                    />
+                  </>
+                ) : (
+                  false
+                )}
                 <ModalFooter
                   display={"flex"}
                   justifyContent={"center"}
