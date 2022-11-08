@@ -15,7 +15,15 @@ interface IUser {
 
 interface IInuput {
   register: UseFormRegister<IUser> | any;
-  id: "type" | "password" | "email" | "name" | "cpf" | "confirmPassword";
+  id:
+    | "type"
+    | "password"
+    | "email"
+    | "name"
+    | "cpf"
+    | "confirmPassword"
+    | "crm"
+    | "specialties";
   label: string;
   error: FieldError | undefined;
   placeholder: string;

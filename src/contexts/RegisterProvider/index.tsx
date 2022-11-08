@@ -29,6 +29,8 @@ interface IUser {
   password: string;
   confirmPassword?: string;
   type: string;
+  specialties?: string;
+  crm?: string;
 }
 
 export const RegisterContext = createContext<IRegisterContext>(
