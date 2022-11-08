@@ -1,14 +1,32 @@
 import { Form, DivGeneral, Back, ButtonSend } from "./styles";
 import Input from "../InputRegister";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { RegisterContext } from "../../contexts/RegisterProvider";
 import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
 
 const FormRegister = () => {
   const { errors, handleSubmit, register, registerUser } =
     useContext(RegisterContext);
 
   const Navigate = useNavigate();
+
+  const [verification, setVerification] = useState<string>(
+    "paciente" as string
+  );
+  const [specialties, setSpecialties] = useState<string[]>([] as string[]);
+
+  useEffect(() => {
+    api
+      .get(`/doctor/specialties`)
+      .then((res) => {
+        setSpecialties(res.specialties);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <>
       <Form onSubmit={handleSubmit(registerUser)}>
@@ -54,8 +72,33 @@ const FormRegister = () => {
             placeholder={"Confirme sua senha"}
             type={"password"}
           />
+          {verification === "paciente" ? (
+            <></>
+          ) : (
+            <>
+              <Input
+                label={"CRM"}
+                register={register}
+                id={"crm"}
+                error={errors?.confirmPassword}
+                placeholder={"Confirme sua senha"}
+                type={"password"}
+              />
+              <label>Especialidades</label>
+              <select {...register("specialties")}>
+                {specialties.map((item, index) => (
+                  <option value={item.name} key={index}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+            </>
+          )}
           <label>Tipo</label>
-          <select {...register("type")}>
+          <select
+            {...register("type")}
+            onChange={(event) => setVerification(event.target.value)}
+          >
             <option value="paciente">Paciente</option>
             <option value="enfermeiro">Enfermeiro</option>
           </select>

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Form = styled.form`
   width: 320px;
-  height: 520px;
   background: #fffbfb;
   border-radius: 10px;
   display: flex;
@@ -11,6 +10,7 @@ export const Form = styled.form`
   align-items: center;
   margin-bottom: 40px;
   padding: 20px 0;
+  overflow-y: auto;
 
   h1 {
     font-size: 22px;
@@ -40,9 +40,9 @@ export const Form = styled.form`
   }
 
   @media (min-width: 768px) {
-    height: 600px;
     padding: 5px;
     justify-content: space-evenly;
+    overflow-y: auto;
 
     h1 {
       font-size: 26px;
