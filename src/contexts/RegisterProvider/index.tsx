@@ -51,7 +51,7 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
     api
       .post("register", data)
       .then((res) => {
-        navigate("/");
+        navigate("/login");
         toast.success("Cadastro realizado com sucesso");
       })
       .catch((err) => {
