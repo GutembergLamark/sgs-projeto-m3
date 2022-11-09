@@ -51,7 +51,7 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
   const registerUser = (data: IUser) => {
     delete data.confirmPassword;
     api
-      .post("register", data)
+      .post("/patient", data)
       .then((res) => {
         navigate("/login");
         toast.success("Cadastro realizado com sucesso");

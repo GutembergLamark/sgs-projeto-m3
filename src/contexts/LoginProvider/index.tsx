@@ -95,14 +95,11 @@ const LoginProvider = ({ children }: ILoginProvider) => {
       .post("/login", data)
       .then((res) => {
         localStorage.clear();
-        setUser(res.data.user);
-
-        localStorage.setItem("@sgs:token", res.data.accessToken);
-        localStorage.setItem("@sgs:id", res.data.user.id);
+        localStorage.setItem("@sgs:token", res.data.token);
         toast.success("Login realizado com sucesso");
-        res.data.user.type === "paciente"
+        res.data.isDoctor === false
           ? navigate("/dashboard/patient", { replace: true })
-          : navigate("dashboard/doctor", { replace: true });
+          : navigate("/dashboard/doctor", { replace: true });
       })
       .catch((err) => {
         toast.error("Email ou senha incorretos ou não cadastrados");
