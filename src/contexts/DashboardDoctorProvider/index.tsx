@@ -30,7 +30,7 @@ interface IDashboardDoctorContext {
   cpf: string;
   setCpf: React.Dispatch<React.SetStateAction<string>>;
   logout: () => void;
-  userSearch: IUser[] | null;
+  userSearch: IUser | null;
 }
 
 export const DashboardDoctorContext = createContext(
@@ -47,13 +47,13 @@ const DashboardDoctorProvider = ({ children }: IDashboardDoctorProvider) => {
     const token = localStorage.getItem("@sgs:token");
 
     api
-      .get(`users?cpf=${cpf}`, {
+      .get(`/doctor/patient/${cpf}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
-        setUserSearch(res.data);
+        setUserSearch(res.data.patient);
 
         if (res.data[0]?.type === "paciente") {
           Navigate("/dashboard/doctor/patient", { replace: true });
