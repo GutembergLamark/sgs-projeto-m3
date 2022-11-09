@@ -17,11 +17,13 @@ import ProtectedRoutes from "./ProtectedRoutes";
 import DiseasesHistoric from "../pages/HistoricDoctor/DiseaseHistoric";
 import ExamsHistoric from "../pages/HistoricDoctor/ExamsHistoric";
 import MedicinesHistoric from "../pages/HistoricDoctor/MedicinesHistoric";
+import LandingPage from "../pages/LandingPage";
 
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route element={<ProtectedRoutes />}>
         <Route path="/dashboard/doctor" element={<DashboardDoctor />} />

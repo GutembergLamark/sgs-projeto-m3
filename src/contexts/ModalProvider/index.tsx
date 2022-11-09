@@ -1,10 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, ReactNode, useState } from "react";
 import {
   useForm,
   UseFormRegister,
@@ -13,15 +7,16 @@ import {
 } from "react-hook-form";
 import { toast } from "react-toastify";
 import api from "../../services/api";
-import { LoginContext } from "../LoginProvider";
 
 interface IModalProvider {
   children: ReactNode;
 }
 
-interface IRegister {
+export interface IRegister {
   description?: string;
   name?: string;
+  date?: string;
+  results_exams?: string;
 }
 
 interface IModalContext {
@@ -47,29 +42,91 @@ const ModalProvider = ({ children }: IModalProvider) => {
     formState: { errors, isSubmitting },
   } = useForm<IRegister>();
 
-  const [allergys, setAllergy] = useState<IRegister[]>([]);
-  const [illnesses, setIIllnesses] = useState<IRegister[]>([]);
+  const [allergys, setAllergys] = useState<IRegister[]>([]);
+  const [illnesses, setIllnesses] = useState<IRegister[]>([]);
   const [exams, setExams] = useState<IRegister[]>([]);
   const [medicines, setMedicines] = useState<IRegister[]>([]);
 
+  const token = localStorage.getItem("@sgs:token");
+
   const Allergy = (data: IRegister) => {
-    setAllergy([...allergys, data]);
-    toast.success("Alergia cadastrada com sucesso!");
+    api
+      .post(
+        `/patient/allergy`,
+        {
+          data,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((res) => {
+        setAllergys([...allergys, res.data.allergy]);
+        toast.success("Alergia cadastrada com sucesso!");
+      })
+      .catch((err) => {
+        toast.error("Algo inesperado aconteceu");
+      });
   };
 
   const Illnesses = (data: IRegister) => {
-    setIIllnesses([...illnesses, data]);
-    toast.success("Doença cadastrada com sucesso!");
+    api
+      .post(
+        `/patient/disease`,
+        {
+          data,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((res) => {
+        setIllnesses([...illnesses, res.data.disease]);
+        toast.success("Doença cadastrada com sucesso!");
+      })
+      .catch((err) => {
+        toast.error("Algo inesperado aconteceu");
+      });
   };
 
   const Exams = (data: IRegister) => {
-    setExams([...exams, data]);
-    toast.success("Exame cadastrado com sucesso!");
+    api
+      .post(
+        `/patient/exam`,
+        {
+          data,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((res) => {
+        setExams([...exams, res.data.exam]);
+        toast.success("Exame cadastrado com sucesso!");
+      })
+      .catch((err) => {
+        toast.error("Algo inesperado aconteceu");
+      });
   };
 
   const Medicines = (data: IRegister) => {
-    setMedicines([...medicines, data]);
-    toast.success("Remédio cadastrado com sucesso!");
+    api
+      .post(
+        `/patient/medicine`,
+        {
+          data,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((res) => {
+        setMedicines([...medicines, res.data.medicine]);
+        toast.success("Remédio cadastrado com sucesso!");
+      })
+      .catch((err) => {
+        toast.error("Algo inesperado aconteceu");
+      });
   };
 
   return (

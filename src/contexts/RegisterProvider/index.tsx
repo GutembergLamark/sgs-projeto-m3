@@ -29,6 +29,8 @@ interface IUser {
   password: string;
   confirmPassword?: string;
   type: string;
+  specialties?: string;
+  crm?: string;
 }
 
 export const RegisterContext = createContext<IRegisterContext>(
@@ -51,7 +53,7 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
     api
       .post("register", data)
       .then((res) => {
-        navigate("/");
+        navigate("/login");
         toast.success("Cadastro realizado com sucesso");
       })
       .catch((err) => {
