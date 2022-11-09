@@ -5,6 +5,12 @@ import { RegisterContext } from "../../contexts/RegisterProvider";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 
+interface ISpecialties {
+  doctor: object[];
+  id: string;
+  name: string;
+}
+
 const FormRegister = () => {
   const { errors, handleSubmit, register, registerUser } =
     useContext(RegisterContext);
@@ -14,18 +20,20 @@ const FormRegister = () => {
   const [verification, setVerification] = useState<string>(
     "paciente" as string
   );
-  const [specialties, setSpecialties] = useState<string[]>([] as string[]);
+  const [specialties, setSpecialties] = useState<ISpecialties[]>(
+    [] as ISpecialties[]
+  );
 
   useEffect(() => {
     api
       .get(`/doctor/specialties`)
       .then((res) => {
-        setSpecialties(res.specialties);
+        setSpecialties(res.data.specialties);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [verification]);
 
   return (
     <>
@@ -82,7 +90,7 @@ const FormRegister = () => {
                 id={"crm"}
                 error={errors?.confirmPassword}
                 placeholder={"Confirme sua senha"}
-                type={"password"}
+                type={"text"}
               />
               <label>Especialidades</label>
               <select {...register("specialties")}>
