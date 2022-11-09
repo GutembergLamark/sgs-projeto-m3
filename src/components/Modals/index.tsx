@@ -19,7 +19,7 @@ interface IModal {
   title: string;
   labelName: string;
   placeholderName: string;
-  description: string;
+  description?: string;
   placeholderDescription: string;
   nameButton: string;
   sendButton: string;
@@ -27,6 +27,7 @@ interface IModal {
   typeExams?: string;
   link?: string;
   placeholderLink?: string;
+  symptoms?: string
 }
 
 const Modals = ({
@@ -34,6 +35,7 @@ const Modals = ({
   labelName,
   placeholderName,
   description,
+  symptoms,
   placeholderDescription,
   link,
   placeholderLink,
@@ -83,10 +85,9 @@ const Modals = ({
                 />
                 <FormLabel marginTop={"15px"}>{description}</FormLabel>
                 <Input
-                  type={typeExams ? typeExams : "text"}
+                  type={ "text"}
                   placeholder={placeholderDescription}
-                  {...register("description")}
-                  required
+                  {...symptoms ? {...register("symptoms")}: typeExams ? {...register("date")}:  {...register("description")} }
                 />
                 {link ? (
                   <>

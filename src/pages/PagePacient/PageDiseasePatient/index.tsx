@@ -22,7 +22,7 @@ export const PageDiseasePacient = () => {
           title={"Informar Doença"}
           labelName={"Doença"}
           placeholderName={"Insira a doença"}
-          description={"Descrição"}
+          symptoms={"Sintomas"}
           placeholderDescription={"Descreva a doença"}
           sendButton={"Salvar Doença"}
         />

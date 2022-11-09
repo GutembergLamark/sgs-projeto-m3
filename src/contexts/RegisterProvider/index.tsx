@@ -31,8 +31,9 @@ interface IUser {
   password: string;
   confirmPassword?: string;
   type: string;
-  specialties?: string;
+  specialtie?: string;
   crm?: string;
+  birth_date: string
 }
 
 export const RegisterContext = createContext<IRegisterContext>(
@@ -53,17 +54,32 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
 
   const registerUser = (data: IUser) => {
     delete data.confirmPassword;
-    api
+    if(data.type === "paciente" ){
+      delete data.crm
+      delete data.specialtie
+      api
       .post("/patient", data)
       .then((res) => {
         navigate("/login");
         toast.success("Cadastro realizado com sucesso");
       })
       .catch((err) => {
-        toast.error("Algo ineperado aconteceu");
+        toast.error("Ops! Algum campo está incorreto ou usuário já cadastrado");
         console.log(err);
-      });
-    reset();
+      })
+    }else{
+      console.log(data)
+      api
+      .post("/doctor", data)
+      .then((res) => {
+        navigate("/login");
+        toast.success("Cadastro realizado com sucesso");
+      })
+      .catch((err) => {
+        toast.error("Ops! Algum campo está incorreto ou usuário já cadastrado");
+        console.log(err);
+      })
+    }
   };
 
   return (

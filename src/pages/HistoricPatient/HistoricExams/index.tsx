@@ -1,32 +1,29 @@
+/* eslint-disable react/jsx-no-target-blank */
 import { DivGeneral, DivUl, H1 } from "../StyleHistoric/style";
 import { useContext, useEffect } from "react";
 import ContentPagePacient from "../../../components/ContentPagePacient";
 import { LoginContext } from "../../../contexts/LoginProvider";
-import { ModalContext } from "../../../contexts/ModalProvider";
 import api from "../../../services/api";
 
 export const HistoryExams = () => {
   const { user, setUser } = useContext(LoginContext);
-  const { exams } = useContext(ModalContext);
   const token = localStorage.getItem("@sgs:token");
-  const idUsuario = user.id;
-
+ 
   useEffect(() => {
     api
-      .patch(
-        `/users/${idUsuario}`,
-        { exames: exams },
+      .get(
+        `/patient/exam`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
       .then((res) => {
-        setUser(res.data);
+        setUser({...user, exames: res.data.exams});
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [exams]);
+  }, []);
 
   return (
     <ContentPagePacient>
@@ -37,12 +34,12 @@ export const HistoryExams = () => {
         <DivUl className="div-ul">
           <ul>
             {user.exames &&
-              user.exames.map((elem) => (
-                <li key={elem.name}>
+              user.exames.map((elem, index) => (
+                <li key={index}>
                   <p className="p-history">{elem.name}</p>
                   <details>
-                    <summary>Descrição:</summary>
-                    <p className="p-description">{elem.description}</p>
+                    <summary>Link:</summary>
+                    <a className="p-description" href={`${elem.results_exams}`} target="_blank">{elem.results_exams}</a>
                   </details>
                 </li>
               ))}

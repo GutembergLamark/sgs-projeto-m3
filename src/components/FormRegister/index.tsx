@@ -33,7 +33,7 @@ const FormRegister = () => {
 
   useEffect(() => {
     api
-      .get(`/doctor/specialties`)
+      .get("/doctor/specialties")
       .then((res) => {
         setSpecialties(res.data.specialties);
       })
@@ -53,6 +53,14 @@ const FormRegister = () => {
             id={"name"}
             error={errors?.name}
             placeholder={"Digite seu Nome"}
+            type={"text"}
+          />
+           <Input
+            label={"Data de Nascimento"}
+            register={register}
+            id={"birth_date"}
+            error={errors?.birth_date}
+            placeholder={"Digite sua data de nascimento"}
             type={"text"}
           />
           <Input
@@ -100,7 +108,7 @@ const FormRegister = () => {
                 type={"text"}
               />
               <label>Especialidades</label>
-              <select {...register("specialties")}>
+              <select {...register("specialtie")}>
                 {specialties.map((item, index) => (
                   <option value={item.name} key={index}>
                     {item.name}
