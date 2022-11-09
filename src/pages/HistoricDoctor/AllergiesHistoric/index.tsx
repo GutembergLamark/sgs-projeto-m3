@@ -22,13 +22,13 @@ const AllergiesHistoric = () => {
             <img className="containerImg__img" src={Profile} alt="" />
           </figure>
           <h1 className="container__name">
-            {userSearch && userSearch[0].name}
+            {userSearch && userSearch.name}
           </h1>
         </div>
         <h2 className="dashboard__type">Alergias</h2>
         <ul className="dashboard__historic">
           {userSearch &&
-            userSearch[0].alergias?.map((alergia, index) => {
+            userSearch.alergias?.map((alergia, index) => {
               return (
                 <li key={index} className="historic__type">
                   <h3>Alergia: {alergia.name}</h3>

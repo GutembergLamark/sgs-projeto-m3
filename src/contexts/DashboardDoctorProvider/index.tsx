@@ -53,9 +53,10 @@ const DashboardDoctorProvider = ({ children }: IDashboardDoctorProvider) => {
         },
       })
       .then((res) => {
+        console.log(res);
         setUserSearch(res.data.patient);
 
-        if (res.data[0]?.type === "paciente") {
+        if (res.data.patient.isDoctor === false) {
           Navigate("/dashboard/doctor/patient", { replace: true });
         } else {
           toast.error("CPF não encontrado");

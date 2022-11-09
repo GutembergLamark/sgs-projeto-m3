@@ -48,6 +48,7 @@ interface IUser {
   exames?: IPropsUser[];
   remedios?: IPropsUser[];
   id?: number;
+  specialte?: string;
 }
 
 export const LoginContext = createContext<ILoginContext>({} as ILoginContext);
@@ -67,11 +68,10 @@ const LoginProvider = ({ children }: ILoginProvider) => {
   useEffect(() => {
     const loadUser = async () => {
       const token = localStorage.getItem("@sgs:token");
-      const id = localStorage.getItem("@sgs:id");
 
       if (token) {
         api
-          .get(`/users/${id}`, {
+          .get(`/profile`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

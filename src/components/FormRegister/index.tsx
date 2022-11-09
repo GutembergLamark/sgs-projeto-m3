@@ -1,9 +1,12 @@
-import { Form, DivGeneral, Back, ButtonSend } from "./styles";
-import Input from "../InputRegister";
 import { useContext, useEffect, useState } from "react";
-import { RegisterContext } from "../../contexts/RegisterProvider";
 import { useNavigate } from "react-router-dom";
+
+import Input from "../InputRegister";
 import api from "../../services/api";
+
+import { RegisterContext } from "../../contexts/RegisterProvider";
+
+import { Form, DivGeneral, Back, ButtonSend } from "./styles";
 
 interface ISpecialties {
   doctor: object[];
@@ -12,7 +15,7 @@ interface ISpecialties {
 }
 
 const FormRegister = () => {
-  const { errors, handleSubmit, register, registerUser } =
+  const { errors, handleSubmit, register, registerUser, reset } =
     useContext(RegisterContext);
 
   const Navigate = useNavigate();
@@ -23,6 +26,10 @@ const FormRegister = () => {
   const [specialties, setSpecialties] = useState<ISpecialties[]>(
     [] as ISpecialties[]
   );
+
+  useEffect(() => {
+    reset();
+  }, []);
 
   useEffect(() => {
     api

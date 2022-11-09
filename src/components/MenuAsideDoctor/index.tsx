@@ -26,6 +26,7 @@ const MenuAsideDoctor = ({ children }: IProps) => {
       <main>{children}</main>
       <footer className="menu__side__footer">
         <h2 className="footer__name">Olá, {user.name}</h2>
+        <h3>{user.specialte}</h3>
         <button className="footer__button" onClick={() => logout()}>
           <GiExitDoor />
           Sair

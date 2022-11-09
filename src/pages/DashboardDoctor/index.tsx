@@ -1,11 +1,26 @@
 import { Form } from "./styles";
 import Img from "../../assets/historicoVazio.svg";
 import ContentDashboardDoctor from "../../components/ContentDashboardDoctor";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DashboardDoctorContext } from "../../contexts/DashboardDoctorProvider";
+import api from "../../services/api";
+import { LoginContext } from "../../contexts/LoginProvider";
 
 const DashboardDoctor = () => {
   const { searchPatient, cpf, setCpf } = useContext(DashboardDoctorContext);
+  const { setUser } = useContext(LoginContext);
+
+  const token = localStorage.getItem("@sgs:token");
+
+  useEffect(() => {
+    api
+      .get("/profile", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => setUser(res.data.profile));
+  }, []);
 
   return (
     <ContentDashboardDoctor>
