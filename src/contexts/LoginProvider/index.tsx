@@ -33,8 +33,10 @@ interface ILoginContext {
 }
 
 interface IPropsUser {
+  results_exams: ReactNode;
   name: string;
-  description: string;
+  description?: string;
+  symptoms?: string;
 }
 
 interface IUser {

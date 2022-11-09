@@ -3,31 +3,26 @@ import { useContext, useEffect } from "react";
 import ContentPagePacient from "../../../components/ContentPagePacient";
 import { LoginContext } from "../../../contexts/LoginProvider";
 import api from "../../../services/api";
-import { ModalContext } from "../../../contexts/ModalProvider";
-import { toast } from "react-toastify";
 
 export const HistoryAllergies = () => {
   const { user, setUser } = useContext(LoginContext);
-  const { allergys } = useContext(ModalContext);
   const token = localStorage.getItem("@sgs:token");
-  const idUsuario = user.id;
 
   useEffect(() => {
     api
-      .patch(
-        `/users/${idUsuario}`,
-        { alergias: allergys },
+      .get(
+        `/patient/allergy`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
       .then((res) => {
-        setUser(res.data);
+        setUser({...user, alergias: res.data.allergys});
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [allergys]);
+  }, []);
 
   return (
     <ContentPagePacient>

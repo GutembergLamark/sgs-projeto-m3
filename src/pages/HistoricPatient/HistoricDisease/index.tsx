@@ -2,32 +2,28 @@ import { DivGeneral, DivUl, H1 } from "../StyleHistoric/style";
 import { useContext, useEffect } from "react";
 import ContentPagePacient from "../../../components/ContentPagePacient";
 import { LoginContext } from "../../../contexts/LoginProvider";
-import { ModalContext } from "../../../contexts/ModalProvider";
 import api from "../../../services/api";
 
 export const HistoryDisease = () => {
   const { user, setUser } = useContext(LoginContext);
-  const { illnesses } = useContext(ModalContext);
   const token = localStorage.getItem("@sgs:token");
-  const idUsuario = user.id;
 
   useEffect(() => {
     api
-      .patch(
-        `/users/${idUsuario}`,
-        { doencas: illnesses },
+      .get(
+        `/patient/disease`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
       .then((res) => {
-        setUser(res.data);
+        setUser({...user, doencas: res.data.diseases});
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [illnesses]);
-
+  }, []);
+console.log(user)
   return (
     <ContentPagePacient>
       <DivGeneral>
@@ -37,12 +33,12 @@ export const HistoryDisease = () => {
         <DivUl className="div-ul">
           <ul>
             {user.doencas &&
-              user.doencas.map((elem) => (
-                <li key={elem.name}>
+              user.doencas.map((elem, index) => (
+                <li key={index}>
                   <p className="p-history">{elem.name}</p>
                   <details>
                     <summary>Descrição:</summary>
-                    <p className="p-description">{elem.description}</p>
+                    <p className="p-description">{elem.symptoms}</p>
                   </details>
                 </li>
               ))}
