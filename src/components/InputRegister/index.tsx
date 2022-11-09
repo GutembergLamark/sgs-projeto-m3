@@ -24,7 +24,7 @@ interface IInuput {
     | "cpf"
     | "confirmPassword"
     | "crm"
-    | "specialties";
+    | "specialtie";
   label: string;
   error: FieldError | undefined;
   placeholder: string;

@@ -16,8 +16,10 @@ export const formSchema = yup.object().shape({
     .string()
     .required("Senha obrigatória")
     .oneOf([yup.ref("password")], "Senha deve ser idêntica"),
+    birth_date: yup.string().required("Data de nascimento obrigatória")
+    .matches(/(190[0-9]|191[0-9]|192[0-9]|193[0-9]|194[0-9]|195[0-9]|196[0-9]|197[0-9]|198[0-9]|199[0-9]|200[0-9]|201[0-9]|2020)[- /.](0[1-9]|1[0-2])[- /.](0[1-9]|[1-2][0-9]|3[0-1])/, "Ex: yyyy/mm/dd")
 });
-
+// 
 export const schema = yup
   .object({
     email: yup.string().required("E-mail obrigatório"),
