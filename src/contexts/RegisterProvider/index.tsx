@@ -6,6 +6,7 @@ import {
   useForm,
   UseFormHandleSubmit,
   UseFormRegister,
+  UseFormReset,
 } from "react-hook-form";
 import { formSchema } from "../../validator";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +21,7 @@ interface IRegisterContext {
   register: UseFormRegister<IUser>;
   errors: FieldErrorsImpl<IUser>;
   registerUser: (data: IUser) => void;
+  reset: UseFormReset<IUser>;
 }
 
 interface IUser {
@@ -40,6 +42,7 @@ export const RegisterContext = createContext<IRegisterContext>(
 const RegisterProvider = ({ children }: IRegisterProvider) => {
   const {
     handleSubmit,
+    reset,
     register,
     formState: { errors },
   } = useForm<IUser>({
@@ -57,15 +60,15 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
         toast.success("Cadastro realizado com sucesso");
       })
       .catch((err) => {
-        toast.error("Cadastro não realizado. Email já cadastrado");
-        console.log("requisição não realizada");
+        toast.error("Algo ineperado aconteceu");
         console.log(err);
       });
+    reset();
   };
 
   return (
     <RegisterContext.Provider
-      value={{ handleSubmit, register, errors, registerUser }}
+      value={{ handleSubmit, register, errors, registerUser, reset }}
     >
       {children}
     </RegisterContext.Provider>
