@@ -20,6 +20,7 @@ interface IInuput {
     | "password"
     | "email"
     | "name"
+    | "birth_date"
     | "cpf"
     | "confirmPassword"
     | "crm"

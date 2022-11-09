@@ -50,17 +50,18 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
 
   const registerUser = (data: IUser) => {
     delete data.confirmPassword;
-    api
-      .post("register", data)
-      .then((res) => {
-        navigate("/login");
-        toast.success("Cadastro realizado com sucesso");
-      })
-      .catch((err) => {
-        toast.error("Cadastro não realizado. Email já cadastrado");
-        console.log("requisição não realizada");
-        console.log(err);
-      });
+    console.log(data)
+    // api
+    //   .post("register", data)
+    //   .then((res) => {
+    //     navigate("/login");
+    //     toast.success("Cadastro realizado com sucesso");
+    //   })
+    //   .catch((err) => {
+    //     toast.error("Cadastro não realizado. Email já cadastrado");
+    //     console.log("requisição não realizada");
+    //     console.log(err);
+    //   });
   };
 
   return (
