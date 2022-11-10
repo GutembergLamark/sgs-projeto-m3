@@ -18,7 +18,7 @@ const MenuAsideDoctor = ({ children }: IProps) => {
         <figure className="header__containerLogo">
           <img
             className="header__containerLogo__img"
-            src={require("../../assets/LogoNovo.png")}
+            src={require("../../assets/Logo.png")}
             alt="logo"
           />
         </figure>

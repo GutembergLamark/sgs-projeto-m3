@@ -79,7 +79,7 @@ const LoginProvider = ({ children }: ILoginProvider) => {
             },
           })
           .then(({ data }) => {
-            setUser(data);
+            setUser(data.profile);
           })
           .catch((error) => {
             console.log(error);

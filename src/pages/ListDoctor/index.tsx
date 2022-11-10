@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import ContentDashboardDoctor from "../../components/ContentDashboardDoctor";
 
@@ -12,12 +12,42 @@ import { useNavigate } from "react-router-dom";
 
 import { DashboardDoctorContext } from "../../contexts/DashboardDoctorProvider";
 
+import { LoginContext } from "../../contexts/LoginProvider";
+
+import api from "../../services/api";
+
 const ListDoctor = () => {
   const { userSearch, searchPatient, cpf, setCpf } = useContext(
     DashboardDoctorContext
   );
 
   const Navigate = useNavigate();
+
+  const { setUser, setLoading } = useContext(LoginContext);
+
+  useEffect(() => {
+    const loadUser = async () => {
+      const token = localStorage.getItem("@sgs:token");
+
+      if (token) {
+        api
+          .get(`/profile`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then(({ data }) => {
+            setUser(data.profile);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      setLoading(false);
+    };
+    loadUser();
+  }, []);
+
   return (
     <ContentDashboardDoctor>
       <BiArrowBack
