@@ -60,8 +60,8 @@ const LandingPage = () => {
               <img src={imageLi1} alt="" />
               <p className="p-name">
                 É possível realizar o cadastro do histórico de Alergias,
-                Doenças, Remédios e Exames, para que um profissional médico possa
-                consultar
+                Doenças, Remédios e Exames, para que um profissional médico
+                possa consultar
               </p>
             </li>
             <li>

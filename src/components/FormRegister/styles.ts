@@ -40,7 +40,7 @@ export const Form = styled.form`
   }
 
   @media (min-width: 768px) {
-    padding: 5px;
+    padding: 15px;
     justify-content: space-evenly;
     overflow-y: auto;
 

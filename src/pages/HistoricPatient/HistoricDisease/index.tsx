@@ -6,24 +6,21 @@ import api from "../../../services/api";
 
 export const HistoryDisease = () => {
   const { user, setUser } = useContext(LoginContext);
+  
   const token = localStorage.getItem("@sgs:token");
 
   useEffect(() => {
     api
-      .get(
-        `/patient/disease`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
+      .get(`/patient/disease`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
-        setUser({...user, doencas: res.data.diseases});
+        setUser({ ...user, doencas: res.data.diseases });
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-console.log(user)
   return (
     <ContentPagePacient>
       <DivGeneral>

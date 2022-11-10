@@ -53,8 +53,14 @@ const DashboardDoctorProvider = ({ children }: IDashboardDoctorProvider) => {
         },
       })
       .then((res) => {
-        console.log(res);
-        setUserSearch(res.data.patient);
+        console.log(res.data.patient);
+        setUserSearch({
+          ...res.data.patient,
+          alergias: res.data.patient.allergy,
+          doencas: res.data.patient.disease,
+          exames: res.data.patient.exam,
+          remedios: res.data.patient.medicines,
+        });
 
         if (res.data.patient.isDoctor === false) {
           Navigate("/dashboard/doctor/patient", { replace: true });
