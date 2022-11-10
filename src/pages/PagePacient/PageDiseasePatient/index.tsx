@@ -3,12 +3,40 @@ import ImageMedical from "../../../assets/ImageDoctorSit.svg";
 import Modals from "../../../components/Modals";
 import ContentPagePacient from "../../../components/ContentPagePacient";
 import { ModalContext } from "../../../contexts/ModalProvider";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { LoginContext } from "../../../contexts/LoginProvider";
+import api from "../../../services/api";
 
 export const PageDiseasePacient = () => {
   const { Illnesses } = useContext(ModalContext);
+
+  const { setUser, setLoading } = useContext(LoginContext);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const loadUser = async () => {
+      const token = localStorage.getItem("@sgs:token");
+
+      if (token) {
+        api
+          .get(`/profile`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then(({ data }) => {
+            setUser(data.profile);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      setLoading(false);
+    };
+    loadUser();
+  }, [setLoading, setUser]);
 
   return (
     <ContentPagePacient>
@@ -22,7 +50,7 @@ export const PageDiseasePacient = () => {
           title={"Informar Doença"}
           labelName={"Doença"}
           placeholderName={"Insira a doença"}
-          description={"Descrição"}
+          symptoms={"Sintomas"}
           placeholderDescription={"Descreva a doença"}
           sendButton={"Salvar Doença"}
         />

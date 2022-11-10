@@ -20,10 +20,11 @@ interface IInuput {
     | "password"
     | "email"
     | "name"
+    | "birth_date"
     | "cpf"
     | "confirmPassword"
     | "crm"
-    | "specialties";
+    | "specialtie";
   label: string;
   error: FieldError | undefined;
   placeholder: string;

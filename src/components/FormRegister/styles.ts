@@ -19,8 +19,8 @@ export const Form = styled.form`
     color: #0b8899;
   }
 
-  div:nth-child(8),
-  div:nth-child(10) {
+  div:nth-child(10),
+  div:nth-child(12) {
     display: flex;
     align-items: center;
     background: #d9d9d9;
@@ -40,7 +40,7 @@ export const Form = styled.form`
   }
 
   @media (min-width: 768px) {
-    padding: 5px;
+    padding: 15px;
     justify-content: space-evenly;
     overflow-y: auto;
 

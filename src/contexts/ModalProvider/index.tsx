@@ -17,6 +17,8 @@ export interface IRegister {
   name?: string;
   date?: string;
   results_exams?: string;
+  symptoms?: string;
+  typeExams?: string
 }
 
 interface IModalContext {
@@ -50,12 +52,10 @@ const ModalProvider = ({ children }: IModalProvider) => {
   const token = localStorage.getItem("@sgs:token");
 
   const Allergy = (data: IRegister) => {
+    console.log(data)
     api
       .post(
-        `/patient/allergy`,
-        {
-          data,
-        },
+        `/patient/allergy`, data,        
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -66,16 +66,14 @@ const ModalProvider = ({ children }: IModalProvider) => {
       })
       .catch((err) => {
         toast.error("Algo inesperado aconteceu");
+        console.log(err)
       });
   };
 
   const Illnesses = (data: IRegister) => {
     api
       .post(
-        `/patient/disease`,
-        {
-          data,
-        },
+        `/patient/disease`, data,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -90,12 +88,10 @@ const ModalProvider = ({ children }: IModalProvider) => {
   };
 
   const Exams = (data: IRegister) => {
+    console.log(data)
     api
       .post(
-        `/patient/exam`,
-        {
-          data,
-        },
+        `/patient/exam`, data,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -106,17 +102,15 @@ const ModalProvider = ({ children }: IModalProvider) => {
       })
       .catch((err) => {
         toast.error("Algo inesperado aconteceu");
+        console.log(err)
       });
   };
 
   const Medicines = (data: IRegister) => {
     api
       .post(
-        `/patient/medicine`,
-        {
-          data,
-        },
-        {
+        `/patient/medicine`, data,
+       {
           headers: { Authorization: `Bearer ${token}` },
         }
       )

@@ -6,6 +6,7 @@ import {
   useForm,
   UseFormHandleSubmit,
   UseFormRegister,
+  UseFormReset,
 } from "react-hook-form";
 import { formSchema } from "../../validator";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +21,7 @@ interface IRegisterContext {
   register: UseFormRegister<IUser>;
   errors: FieldErrorsImpl<IUser>;
   registerUser: (data: IUser) => void;
+  reset: UseFormReset<IUser>;
 }
 
 interface IUser {
@@ -29,8 +31,9 @@ interface IUser {
   password: string;
   confirmPassword?: string;
   type: string;
-  specialties?: string;
+  specialtie?: string;
   crm?: string;
+  birth_date: string
 }
 
 export const RegisterContext = createContext<IRegisterContext>(
@@ -40,6 +43,7 @@ export const RegisterContext = createContext<IRegisterContext>(
 const RegisterProvider = ({ children }: IRegisterProvider) => {
   const {
     handleSubmit,
+    reset,
     register,
     formState: { errors },
   } = useForm<IUser>({
@@ -50,22 +54,37 @@ const RegisterProvider = ({ children }: IRegisterProvider) => {
 
   const registerUser = (data: IUser) => {
     delete data.confirmPassword;
-    api
+    if(data.type === "paciente" ){
+      delete data.crm
+      delete data.specialtie
+      api
       .post("/patient", data)
       .then((res) => {
         navigate("/login");
         toast.success("Cadastro realizado com sucesso");
       })
       .catch((err) => {
-        toast.error("Cadastro não realizado. Email já cadastrado");
-        console.log("requisição não realizada");
+        toast.error("Ops! Algum campo está incorreto ou usuário já cadastrado");
         console.log(err);
-      });
+      })
+    }else{
+      console.log(data)
+      api
+      .post("/doctor", data)
+      .then((res) => {
+        navigate("/login");
+        toast.success("Cadastro realizado com sucesso");
+      })
+      .catch((err) => {
+        toast.error("Ops! Algum campo está incorreto ou usuário já cadastrado");
+        console.log(err);
+      })
+    }
   };
 
   return (
     <RegisterContext.Provider
-      value={{ handleSubmit, register, errors, registerUser }}
+      value={{ handleSubmit, register, errors, registerUser, reset }}
     >
       {children}
     </RegisterContext.Provider>

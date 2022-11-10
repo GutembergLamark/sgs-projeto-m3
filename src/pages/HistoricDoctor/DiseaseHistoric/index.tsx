@@ -21,25 +21,22 @@ const DiseasesHistoric = () => {
           <figure className="container__containerImg">
             <img className="containerImg__img" src={Profile} alt="" />
           </figure>
-          <h1 className="container__name">
-            {userSearch && userSearch[0].name}
-          </h1>
+          <h1 className="container__name">{userSearch && userSearch.name}</h1>
         </div>
         <h2 className="dashboard__type">Doenças</h2>
         <ul className="dashboard__historic">
-          {userSearch && (
-            userSearch[0].doencas?.map((doenca, index) => {
+          {userSearch &&
+            userSearch.doencas?.map((doenca, index) => {
               return (
                 <li key={index} className="historic__type">
-                  <h3>Alergia: {doenca.name}</h3>
+                  <h3>Doença: {doenca.name}</h3>
                   <details>
                     <summary>Descrição:</summary>
                     <p className="p-description">{doenca.description}</p>
                   </details>
                 </li>
               );
-            })
-          )}
+            })}
         </ul>
       </MainDashboard>
     </ContentDashboardDoctor>

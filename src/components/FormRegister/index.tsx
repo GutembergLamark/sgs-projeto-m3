@@ -1,9 +1,12 @@
-import { Form, DivGeneral, Back, ButtonSend } from "./styles";
-import Input from "../InputRegister";
 import { useContext, useEffect, useState } from "react";
-import { RegisterContext } from "../../contexts/RegisterProvider";
 import { useNavigate } from "react-router-dom";
+
+import Input from "../InputRegister";
 import api from "../../services/api";
+
+import { RegisterContext } from "../../contexts/RegisterProvider";
+
+import { Form, DivGeneral, Back, ButtonSend } from "./styles";
 
 interface ISpecialties {
   doctor: object[];
@@ -12,7 +15,7 @@ interface ISpecialties {
 }
 
 const FormRegister = () => {
-  const { errors, handleSubmit, register, registerUser } =
+  const { errors, handleSubmit, register, registerUser, reset } =
     useContext(RegisterContext);
 
   const Navigate = useNavigate();
@@ -25,8 +28,12 @@ const FormRegister = () => {
   );
 
   useEffect(() => {
+    reset();
+  }, []);
+
+  useEffect(() => {
     api
-      .get(`/doctor/specialties`)
+      .get("/doctor/specialties")
       .then((res) => {
         setSpecialties(res.data.specialties);
       })
@@ -46,6 +53,14 @@ const FormRegister = () => {
             id={"name"}
             error={errors?.name}
             placeholder={"Digite seu Nome"}
+            type={"text"}
+          />
+           <Input
+            label={"Data de Nascimento"}
+            register={register}
+            id={"birth_date"}
+            error={errors?.birth_date}
+            placeholder={"Digite sua data de nascimento"}
             type={"text"}
           />
           <Input
@@ -93,7 +108,7 @@ const FormRegister = () => {
                 type={"text"}
               />
               <label>Especialidades</label>
-              <select {...register("specialties")}>
+              <select {...register("specialtie")}>
                 {specialties.map((item, index) => (
                   <option value={item.name} key={index}>
                     {item.name}
